@@ -1,2 +1,0 @@
-# IdeaSetting_WebStorm_Ycw
-用于Idea系列产品中的WebStorm，Ycw版本的常见设置。
