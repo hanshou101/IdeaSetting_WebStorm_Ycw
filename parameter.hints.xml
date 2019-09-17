@@ -1,0 +1,15 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <blacklists>
+      <blacklist language="TypeScript" />
+      <blacklist language="Angular HTML Template" />
+      <blacklist language="JavaScript" />
+    </blacklists>
+    <option id="angular.show.names.for.all.args" value="true" />
+    <option id="js.param.hints.show.names.for.all.args" value="true" />
+    <option id="SHOW_LOCAL_VARIABLE_HINT" value="true" />
+    <option id="SHOW_FUNCTION_HINT" value="true" />
+    <option id="SHOW_PARAMETER_TYPE_HINT" value="true" />
+    <option id="js.only.show.names.for.all.args" value="true" />
+  </component>
+</application>

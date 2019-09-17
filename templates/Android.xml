@@ -1,0 +1,298 @@
+<templateSet group="Android">
+  <template name="Toast" value="android.widget.Toast.makeText($context$, &quot;$text$&quot;, Toast.LENGTH_SHORT).show();" description="Create a new Toast" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="context" expression="variableOfType(&quot;android.content.Context&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="fbc" value="($cast$) findViewById(R.id.$resId$);" description="findViewById with cast" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="cast" expression="expectedType()" defaultValue="" alwaysStopAt="true" />
+    <variable name="resId" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="sbc" value="///////////////////////////////////////////////////////////////////////////&#10;// $blockName$&#10;///////////////////////////////////////////////////////////////////////////" description="block comment for structuring code" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="blockName" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="Sfmt" value="String.format(&quot;$string$&quot;, $params$);" description="String format" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="params" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="IntentView" value="android.content.Intent view = new Intent();&#10;view.setAction(Intent.ACTION_VIEW);&#10;view.setData(android.net.Uri.parse($url$));&#10;startActivity(view);" description="Creates an Intent with ACTION_VIEW" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="url" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="ViewConstructors" value="public $class$(android.content.Context context) {&#10;    this(context, null);&#10;}&#10;&#10;public $class$(Context context, android.util.AttributeSet attrs) {&#10;    this(context, attrs, 0);&#10;}&#10;&#10;public $class$(Context context, AttributeSet attrs, int defStyle) {&#10;    super(context, attrs, defStyle);&#10;    $cursor$&#10;}" description="Adds generic view constructors" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="cursor" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="class" expression="className()" defaultValue="" alwaysStopAt="false" />
+  </template>
+  <template name="rgS" value="$resources$.getString(R.string.$stringId$)" description="get a String from resources" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="resources" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="stringId" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="wrapIt" value="task wrapper(type: Wrapper) {&#10;    gradleVersion = &quot;$version$&quot;&#10;}" description="adds a gradle wrapper task" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="version" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="newInstance" value="public static $fragment$ newInstance($args$) {&#10;    $nullChecks$&#10;    android.os.Bundle args = new Bundle();&#10;    $addArgs$&#10;    $fragment$ fragment = new $fragment$();&#10;    fragment.setArguments(args);&#10;    return fragment;&#10;}" description="create a new Fragment instance with arguments" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="fragment" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="args" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="nullChecks" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="addArgs" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="noInstance" value="private $class$() {&#10;    //no instance&#10;}" description="private empty constructor to prohibit instance creation" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="class" expression="className()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="starter" value="public static void start(android.content.Context context) {&#10;    android.content.Intent starter = new Intent(context, $ACTIVITY$.class);&#10;    starter.putExtra($CURSOR$);&#10;    context.startActivity(starter);&#10;}" description="Creates a static start(...) helper method to start an Activity" toReformat="false" toShortenFQNames="true" deactivated="true">
+    <variable name="ACTIVITY" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="CURSOR" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="key" value="private static final String KEY_$value$ = &quot;$value$&quot;;" description="Key for a bundle" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="visible" value="$VIEW$.setVisibility(View.VISIBLE);" description="Set view visibility to VISIBLE" toReformat="true" toShortenFQNames="true" deactivated="true">
+    <variable name="VIEW" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="myViewHolder" value="        ViewHolder vh = null;&#10;        if (convertView.getTag() == null) {&#10;&#10;            vh = new ViewHolder(convertView);&#10;&#10;            convertView.setTag(vh);&#10;&#10;        } else {&#10;&#10;            vh = (ViewHolder) convertView.getTag();&#10;        }" description="创建一个ViewHolder模板代码（无法根据提示自动生成）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myGetIntent" value="        Intent preIntent = getIntent();&#10;        Bundle bundle = preIntent.getExtras();&#10;        String $str$ = (String) bundle.get(&quot;$str$&quot;);" description="(自动生成常用的getIntent模板)" toReformat="false" toShortenFQNames="true">
+    <variable name="str" expression="" defaultValue="&quot;str&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myHandler" value="Handler handler = new Handler(new Handler.Callback() {&#10;    @Override&#10;    public boolean handleMessage(Message message) {&#10;&#10;        switch (message.what) {&#10;&#10;            case $case1$:&#10;                //TODO&#10;                break;&#10;&#10;            case $case2$:&#10;                //TODO&#10;                break;&#10;&#10;            default:&#10;&#10;                break;&#10;        }&#10;&#10;        return true;&#10;    }&#10;});" description="(自动生成可用的handler,并生成参数)" toReformat="false" toShortenFQNames="true">
+    <variable name="case1" expression="" defaultValue="&quot;111&quot;" alwaysStopAt="false" />
+    <variable name="case2" expression="" defaultValue="&quot;999&quot;" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myTimerTask" value="final Timer timer = new Timer();&#10;final boolean[] isFinish = {false};&#10;TimerTask timerTask = new TimerTask() {&#10;    @Override&#10;    public void run() {&#10;        //TODO&#10;&#10;        if (isFinish[0]) {&#10;            timer.cancel();&#10;        }&#10;    }&#10;};&#10;timer.schedule(timerTask,$first$,$per$);" description="(自动生成可用的TimerTask)" toReformat="true" toShortenFQNames="true">
+    <variable name="first" expression="" defaultValue="&quot;222&quot;" alwaysStopAt="true" />
+    <variable name="per" expression="" defaultValue="&quot;3333&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myDialog" value="AlertDialog.Builder builder = new AlertDialog.Builder($activity$.this);&#10;builder.setTitle(&quot; $title$ &quot;);&#10;builder.setMessage(&quot; $text$ &quot;);&#10;builder.setPositiveButton(&quot;确认&quot;, new DialogInterface.OnClickListener() {&#10;    @Override&#10;    public void onClick(DialogInterface dialog, int which) {&#10;        $TODO1$&#10;        //TODO &#10;        //TODO builder.dismiss()&#10;    }&#10;});&#10;builder.setNegativeButton(&quot;取消&quot;, new DialogInterface.OnClickListener() {&#10;    @Override&#10;    public void onClick(DialogInterface dialog, int which) {&#10;        $TODO2$&#10;        //TODO &#10;    }&#10;});&#10;builder.show();" description="(自动生成弹出的Dialog)" toReformat="false" toShortenFQNames="true">
+    <variable name="activity" expression="" defaultValue="&quot;Activity&quot;" alwaysStopAt="true" />
+    <variable name="title" expression="" defaultValue="&quot;标题&quot;" alwaysStopAt="true" />
+    <variable name="text" expression="" defaultValue="&quot;是否确认？&quot;" alwaysStopAt="true" />
+    <variable name="TODO1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TODO2" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="my_noNull" value="if ( ( ( $object$==null) == false )    &amp;&amp;  ( true ) ){&#10;    $toHandle$&#10;    //TODO 此处不为null后的操作&#10;}" description="(自动生成判断不为null的方法)" toReformat="true" toShortenFQNames="true">
+    <variable name="object" expression="" defaultValue="&quot;object&quot;" alwaysStopAt="true" />
+    <variable name="toHandle" expression="" defaultValue="&quot;干干干干干&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myFindView" value=" $ViewType$ $name$   = ( $ViewType$ )findViewById(R.id.$View$);" description="(自动生成根据id找View方法)" toReformat="true" toShortenFQNames="true">
+    <variable name="ViewType" expression="expectedType()" defaultValue="&quot;View&quot;" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="&quot;view&quot;" alwaysStopAt="true" />
+    <variable name="View" expression="" defaultValue="&quot;id&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myPermission" value="    //TODO 自动导包太 TM 帅了 ；&#10;&#10; public void Shen_Qing_Quan_Xian() {&#10;&#10;        final int ACCESS_READ_WRITE_CODE = 998;&#10;        if (Build.VERSION.SDK_INT &gt;= 23) {&#10;&#10;            if ((ContextCompat.checkSelfPermission(this,&#10;                    Manifest.permission.$request_1$) != PackageManager.PERMISSION_GRANTED) || (ContextCompat.checkSelfPermission(&#10;                    this, Manifest.permission.$request_2$) != PackageManager.PERMISSION_GRANTED)) {&#10;&#10;&#10;                TLog.l(&quot;检测到目前无权限，开始申请权限。&quot;);&#10;                ActivityCompat.requestPermissions(this,&#10;                        new String[]{Manifest.permission.$request_1$,&#10;                                Manifest.permission.$request_2$},&#10;                        ACCESS_READ_WRITE_CODE);&#10;            } else {&#10;&#10;                TLog.l(&quot;检测到，拥有原本所需的权限，开始往下面走。&quot;);&#10;                $todo_1$&#10;&#10;            }&#10;        } else {&#10;                $todo_2$&#10;        }&#10;    }&#10;&#10;&#10;    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {&#10;        super.onRequestPermissionsResult(requestCode, permissions, grantResults);&#10;&#10;        final int ACCESS_READ_WRITE_CODE = 998;&#10;        switch (requestCode) {&#10;            case ACCESS_READ_WRITE_CODE:&#10;                if (grantResults.length &gt; 0 &amp;&amp; (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {&#10;                    TLog.l(&quot;得悉权限成功，下面开始做原本预定的事情。&quot;);&#10;                    $todo_3$&#10;&#10;                } else {&#10;                    TLog.l(&quot;用户拒绝了申请权限，权限逻辑被驳回。&quot;);&#10;                    ToastZ.makeToast(&quot;您已经拒绝了权限。将无法正常执行此段功能。&quot;);&#10;                    $todo_4$&#10;&#10;                }&#10;                break;&#10;        }&#10;&#10;    }" description="自动申请动态权限代码，并预留参数" toReformat="true" toShortenFQNames="true">
+    <variable name="request_1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="request_2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="todo_1" expression="" defaultValue="&quot; //TODO 做该做的事情，比如  开始升级。&quot;" alwaysStopAt="true" />
+    <variable name="todo_2" expression="" defaultValue="&quot;//TODO 此处版本没有6.0高，则直接执行上面 TODO的脚本。直接执行成功。&quot;" alwaysStopAt="true" />
+    <variable name="todo_3" expression="" defaultValue="&quot;//TODO 做该做的事情，比如  开始升级。&quot;" alwaysStopAt="true" />
+    <variable name="todo_4" expression="" defaultValue="&quot;//TODO 既然已成定局，那么作暂时处理&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myOnBackPressed" value="@Override&#10;public void onBackPressed() {&#10;    AlertDialog.Builder builder = new AlertDialog.Builder($someActivity$.this);&#10;    builder.setTitle(&quot;&quot;);&#10;    builder.setMessage(&quot;您将退出$SomeName$，是否确认？&quot;);&#10;    builder.setPositiveButton(&quot;确认&quot;, new DialogInterface.OnClickListener() {&#10;        @Override&#10;        public void onClick(DialogInterface dialog, int which) {&#10;            AppManager.getAppManager()&#10;                    .AppExit($someActivity$.this);&#10;        }&#10;    });&#10;    builder.setNegativeButton(&quot;取消&quot;, new DialogInterface.OnClickListener() {&#10;        @Override&#10;        public void onClick(DialogInterface dialog, int which) {&#10;            //$doSomething$&#10;        }&#10;    });&#10;    builder.show();&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="SomeName" expression="" defaultValue="&quot;应用&quot;" alwaysStopAt="true" />
+    <variable name="someActivity" expression="" defaultValue="&quot;Activity&quot;" alwaysStopAt="true" />
+    <variable name="doSomething" expression="" defaultValue="&quot;返回&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="mySharedpreference" value="SharedPreferences sp = getSharedPreferences(&quot;$spTable$&quot;, MODE_PRIVATE);&#10;SharedPreferences.Editor editor = sp.edit();&#10;editor.putString(&quot;$paramName$&quot;, $paramName$);&#10;editor.commit();" description="(自动获得sp的可直接操作存储的代码)" toReformat="false" toShortenFQNames="true">
+    <variable name="spTable" expression="" defaultValue="&quot;spName&quot;" alwaysStopAt="true" />
+    <variable name="paramName" expression="" defaultValue="&quot;paramName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myMenuBar" value="&#10;    &lt;include&#10;        layout=&quot;@layout/menubar&quot;   android:visibility=&quot;gone&quot;/&gt;" description="一键 menubar" toReformat="false" toShortenFQNames="true" deactivated="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="myLLweight_1" value="   &lt;com.zhy.autolayout.AutoLinearLayout&#10;        android:layout_width=&quot;match_parent&quot;&#10;        android:layout_height=&quot;0px&quot;&#10;        android:layout_weight=&quot;1&quot;&#10;        android:orientation=&quot;vertical&quot;&gt;&#10;        &#10;        &#10;        &#10;        &lt;/com.zhy.autolayout.AutoLinearLayout&gt;&#10;    " description="生成 weight 1 的 LL" toReformat="false" toShortenFQNames="true" deactivated="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="myFragmentManager" value="&#10;        Fragment _____lFragment = new Fragment();&#10;&#10;        FragmentManager _____lManager = getSupportFragmentManager();&#10;        FragmentTransaction _____lTransaction = _____lManager.beginTransaction();&#10;        _____lTransaction.replace($content_Layout_Id$, $newFragment$, $newFrName$);&#10;        // _____lTransaction.remove();&#10;        // _____lTransaction.add($content_Layout_Id$,$newFragment$);&#10;        _____lTransaction.addToBackStack(null);&#10;        _____lTransaction.commit();&#10;&#10;" description="自动生成FragmentManager的管理代码模板" toReformat="false" toShortenFQNames="true">
+    <variable name="content_Layout_Id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="newFrName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="newFragment" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="myFlag" value="&#10;    /**&#10;     * &#10;     * ,,,,,,,......,.,,---,,,,,---,,,,,,,.......&#10;     * -,,,,,,,,.........,,--,,,,,--,,,,,,,,,....&#10;     * ,,,.,,,,.....,,...,,---,,,,,-,,,-,,,,,,...&#10;     * ,,,.......;,  ,...,,-,,,,,,,,,,,,,,,,,,,,,真&#10;     * ,........-$-  .....,,,,,,,,,,,,,,,,,..,,,,&#10;     * ,........,$~  ..........,,,,,,,,,,,..,.,,,&#10;     * ,........,$:   ............,,,,,,,,,,,,,,,&#10;     * ,,.,.....,$:   ...........,,,.,,,,,,,,,,,,&#10;     * ,,,,.....,$:   ...........,,.,.,,,,,,,,,,,理&#10;     * ,,,,,.....$;.. ..........,,,...,,,,,,,,,,,&#10;     * ,,,=-~--,,$!,. ..........,,,,..,,,,,,,,,,,&#10;     * ,,!$~~~~~~~;.. ..........,,,,,,,,,,-,,,,,,&#10;     * ,,*$;:~~~-~!. ~-,,.........,...,,,,,,,,,,,&#10;     * --*@@@#$!~~! .~-~~~~~,.....,...,,-,,,,,,,,必&#10;     * --~!$#@@@@@=  ,~~~~~~~....,....,--,,,,,,,,&#10;     * ,,,,,,,~*#@$   #$;~~~~........,--,,,,,.,,,&#10;     * ,,,,.,,,..#$   @@@@@#*,....,,,,,,,,,,,,,..&#10;     * ,,,,,,,...#$   ,-!#@@-.....,,,,,,,..,,,...&#10;     * ,,,,,,,...$$$   ....... .....,,,,,....,.,..使&#10;     * ,,,,,,....=$   .............,,,,,,........&#10;     * ,,,,,,,...=$   .....  ...........,,,......&#10;     * ,,,,,,.,,.=$   ,.................,,,......&#10;     * ,,,,,,,,,,*$   ,.................,...,....&#10;     * ,,,,,,,,,,*$   ,.............,.,.,...,....人&#10;     * ,,,,,,,,,,*$   ..................,,,,.....&#10;     * ,,,,,,,,,,!$.  .....................,.....&#10;     * ---,,,,,,,!$.  ,..,.......................&#10;     * ---,,,,,,,;$.  ,,,,,......................&#10;     * --,,,,,,,,;$.  .,,,,,,,...................得&#10;     * -,,,,,,,,,:$,  .,,,,,,,...................&#10;     * -,,,,,,,,,:$,  .,.,.,,,............ ......&#10;     * -,,,,,,,,,~$-  .,.,................. .....&#10;     * ,,,,,,,,,,~$-   ,.,.......................&#10;     * ,,,,,,,,,,-=-   ,.,.......................自&#10;     * ,,,,,-,,,,-=-   ,.,,......................&#10;     * ,,,,,,,,,,,*-   ,.........................&#10;     * ,,,,,,,,,,,*~   ,..,,,....................&#10;     * ,,,,,,,,.,,!~   ,,,,,....,................&#10;     * ,,..,,...,;*;:-.,,,,.,....................由&#10;     * ,...,,,,.;*=******:,......................&#10;     * ,...,,,,;**********,......................&#10;     * ....,,,;!***~;!***-.......................&#10;     * ....,,.,~;*!,,,,.;,.......................&#10;     * .........!!!.....-,.......................&#10;     * .........!!!.....,-.......................&#10;     * .........;;;..... ~.......................&#10;     * ........,;;;... . :......................&#10;     * ........,;;;...   ~.................... .&#10;     * ........-:::...   ,,................ .&#10;     * ........-:::...    -............     .&#10;     * ........~~:~...    -............      ..&#10;     * ........~~~~. .    ,. ......          .&#10;     * ........~~~~. .    .........&#10;     * ........----.       ,.....&#10;     * ........----        ,...&#10;     * .....,----        ,.&#10;     * ....,,--,        ..&#10;     *&#10;     */" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="mySlimAdapter" value="   SlimAdapterEx _____lAdapterEx = SlimAdapter.create().register($Item_Layout_id$, new SlimInjector&lt;$Item_Bean$&gt;() {&#10;            @Override&#10;            public void onInject($Item_Bean$ data, IViewInjector injector) {&#10;               //TODO &#10;            }&#10;        }).updateData(_____tList);&#10;        TLog.l(&quot;已经进行到了  view 的       &quot;);&#10;&#10;        LinearLayoutManager _____lManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);&#10;        $RecycleView$.setLayoutManager(_____lManager);&#10;        $RecycleView$.setAdapter(_____lAdapterEx);" description="自动展现快速Adapter开发" toReformat="false" toShortenFQNames="true">
+    <variable name="Item_Layout_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Item_Bean" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RecycleView" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myGridSlimAdapter" value="        SlimAdapterEx _____lAdapterEx = SlimAdapter.create().register(R.layout.item_contestia_search, new SlimInjector&lt;SearchContestBean.DataBean&gt;() {&#10;            @Override&#10;            public void onInject(SearchContestBean.DataBean data, IViewInjector injector) {&#10;                injector.text(R.id.tv_time, data.getTime());&#10;                injector.text(R.id.tv_title, data.getTitle());&#10;                injector.text(R.id.tv_name, data.getName());&#10;                Picasso.with(getActivity()).load(data.getVideo_img()).into((ImageView) injector.findViewById(R.id.iv_video_img));&#10;                Picasso.with(getActivity()).load(data.getAvatar()).into((ImageView) injector.findViewById(R.id.iv_head));&#10;            }&#10;        }).updateData(_____tList);&#10;&#10;        //Contest作特殊处理。&#10;        GridLayoutManager _____lGridLayoutManager = new GridLayoutManager(getActivity(), 2);//2栏&#10;        _____lGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {&#10;            @Override&#10;            public int getSpanSize(int position) {//一个item，占几栏格子。（总共3栏）&#10;                return _____lAdapterEx.getItem(position) instanceof SearchContestBean.DataBean ? 1 : 2;&#10;            }&#10;        });&#10;        _____mRvContest.setLayoutManager(_____lGridLayoutManager);&#10;&#10;        _____lAdapterEx.attachTo(_____mRvContest);&#10;" description="自动添加，多栏的SlimAdapter" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="myFrameLayout_Xml" value="&lt;com.zhy.autolayout.AutoFrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#10;                                    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#10;                                    android:layout_width=&quot;match_parent&quot;&#10;                                    android:layout_height=&quot;wrap_content&quot;&gt;&#10;&#10;        &#10;&lt;/com.zhy.autolayout.AutoFrameLayout&gt;" description="自动生成FrameLayout_xml根层次布局" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myTextView_xml" value="&#10;    &lt;TextView&#10;        android:id=&quot;@+id/$id$&quot;&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        android:gravity=&quot;center_horizontal|center_vertical&quot;&#10;        android:text=&quot;$text$&quot;&#10;        android:textColor=&quot;@color/$textColor$&quot;&#10;        android:textSize=&quot;$textSize$&quot;/&gt;" description="自动生成TextView_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="width" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="text" expression="" defaultValue="&quot;textView&quot;" alwaysStopAt="true" />
+    <variable name="textColor" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="textSize" expression="" defaultValue="&quot;26px&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myEditText_xml" value="&#10;    &lt;EditText&#10;        android:id=&quot;@+id/$id$&quot;&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        android:text=&quot;$text$&quot;&#10;        android:textColor=&quot;@color/$color$&quot;&#10;        android:textSize=&quot;$textSize$&quot;&#10;        android:background=&quot;@drawable/$pic$&quot;&#10;        android:hint=&quot;$hint$&quot;&#10;        android:gravity=&quot;right|center_vertical&quot;/&gt;" description="自动生成EditText_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="width" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="color" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="textSize" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="pic" expression="" defaultValue="&quot;ic_launcher&quot;" alwaysStopAt="true" />
+    <variable name="hint" expression="" defaultValue="&quot;notice&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myLinearLayout_xml" value="&#10;    &lt;com.zhy.autolayout.AutoLinearLayout&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        android:padding=&quot;$padding$&quot;&#10;        android:orientation=&quot;$orientation$&quot;&#10;        android:gravity=&quot;center_horizontal|center_vertical&quot;&#10;        &gt;&#10;        &#10;        &#10;    &lt;/com.zhy.autolayout.AutoLinearLayout&gt;&#10;    &#10;    " description="自动生成LinearLayout_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="width" expression="" defaultValue="&quot;match_parent&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="padding" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <variable name="orientation" expression="" defaultValue="&quot;vertical&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myRelativeLayout_xml" value="    &#10;    &#10;    &lt;com.zhy.autolayout.AutoRelativeLayout&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        &gt;&#10;&#10;&#10;    &lt;/com.zhy.autolayout.AutoRelativeLayout&gt;&#10;    &#10;    " description="自动生成RelativeLayout_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="width" expression="" defaultValue="&quot;match_parent&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;match_parent&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myCircleImageView_xml" value="&#10;    &lt;com.myart.kotlin.custom_view.CircleImageView&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        android:src=&quot;@drawable/$pic$&quot;/&gt;&#10;        &#10;        " description="自动生成CircleImageView_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="width" expression="" defaultValue="&quot;80px&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;80px&quot;" alwaysStopAt="true" />
+    <variable name="pic" expression="" defaultValue="&quot;ic_launcher&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myOrdinaryImageView_xml" value="            &#10;            &#10;    &lt;ImageView&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;wrap_content&quot;&#10;        android:adjustViewBounds=&quot;true&quot;&#10;        android:src=&quot;@drawable/$pic$&quot;/&gt;&#10;        &#10;        " description="自动生成原始ImageView_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="width" expression="" defaultValue="&quot;80px&quot;" alwaysStopAt="true" />
+    <variable name="pic" expression="" defaultValue="&quot;ic_launcher&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myButton_xml" value="&#10;&#10;    &lt;Button&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        android:layout_marginLeft=&quot;$mgLeft$&quot;&#10;        android:layout_marginRight=&quot;$mgRight$&quot;&#10;        android:padding=&quot;$padding$&quot;&#10;        android:background=&quot;@drawable/$pic$&quot;&#10;        android:text=&quot;$text$&quot;&#10;        android:textColor=&quot;@color/$color$&quot;&#10;        android:textSize=&quot;$textSize$&quot;&#10;        android:textAllCaps=&quot;$isAllCap$&quot;/&gt;&#10;        &#10;        " description="自动生成Button_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="width" expression="" defaultValue="&quot;200px&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="mgLeft" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <variable name="mgRight" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <variable name="padding" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <variable name="pic" expression="" defaultValue="&quot;ic_launcher&quot;" alwaysStopAt="true" />
+    <variable name="text" expression="" defaultValue="&quot;button&quot;" alwaysStopAt="true" />
+    <variable name="color" expression="" defaultValue="&quot;black&quot;" alwaysStopAt="true" />
+    <variable name="textSize" expression="" defaultValue="&quot;26sp&quot;" alwaysStopAt="true" />
+    <variable name="isAllCap" expression="" defaultValue="&quot;false&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myHoriDividerView_xml" value="&#10;&#10;    &lt;View&#10;        android:layout_width=&quot;match_parent&quot;&#10;        android:layout_height=&quot;1px&quot;&#10;        android:layout_marginLeft=&quot;$mgLeft$&quot;&#10;        android:layout_marginRight=&quot;$mgRight$&quot;&#10;        android:background=&quot;@color/divider_color&quot;/&gt;&#10;        &#10;        " description="自动生成横向DividerView_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="mgLeft" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <variable name="mgRight" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myVerDividerView_xml" value="&#10;&#10;    &lt;View&#10;        android:layout_width=&quot;1px&quot;&#10;        android:layout_height=&quot;match_parent&quot;&#10;        android:layout_marginLeft=&quot;$mgLeft$&quot;&#10;        android:layout_marginRight=&quot;$mgRight$&quot;&#10;        android:background=&quot;@color/divider_color&quot;/&gt;&#10;        &#10;        " description="自动生成纵向DividerView_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="mgLeft" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <variable name="mgRight" expression="" defaultValue="&quot;0px&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myRecycleView_xml" value="&#10;&#10;    &lt;android.support.v7.widget.RecyclerView&#10;        xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#10;        android:id=&quot;@+id/$id$&quot;&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;&#10;        android:background=&quot;@drawable/$pic$&quot;&#10;        tools:listitem=&quot;@layout/$item$&quot;&#10;        /&gt;&#10;        &#10;        " description="自动生成RecycleView_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="width" expression="" defaultValue="&quot;match_parent&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;wrap_content&quot;" alwaysStopAt="true" />
+    <variable name="pic" expression="" defaultValue="&quot;ic_launcher&quot;" alwaysStopAt="true" />
+    <variable name="item" expression="" defaultValue="&quot;item_&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myGSYVideoPlayer_xml" value="&#10;&#10;    &lt;com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer&#10;        android:id=&quot;@+id/$id$&quot;&#10;        android:layout_width=&quot;$width$&quot;&#10;        android:layout_height=&quot;$height$&quot;/&gt;&#10;        &#10;        " description="自动生成GSYVideoPlayer_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="width" expression="" defaultValue="&quot;400px&quot;" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="&quot;400px&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="myAction_view" value="        when (event.action) {&#10;            MotionEvent.ACTION_DOWN -&gt; {&#10;&#10;            }&#10;            MotionEvent.ACTION_MOVE -&gt; {&#10;&#10;            }&#10;            MotionEvent.ACTION_UP -&gt; {&#10;&#10;            }&#10;        }" description="自动生成Motion.Event（三种）" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="myAction_down" value=" MotionEvent.ACTION_DOWN -&gt; {&#10;&#10;            }" description="自动生成按下事件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="myAction_move" value=" MotionEvent.ACTION_MOVE -&gt; {&#10;&#10;            }" description="自动生成移动事件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="myAction_up" value=" MotionEvent.ACTION_UP -&gt; {&#10;&#10;            }" description="自动生成抬起事件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="myPullToRefresh_B_xml" value="                        &#10;                        &#10;        &lt;com.aspsine.swipetoloadlayout.SwipeToLoadLayout&#10;            android:id=&quot;@+id/pull_to_refresh$pull_index$&quot;&#10;            android:layout_width=&quot;match_parent&quot;&#10;            android:layout_height=&quot;match_parent&quot;&gt;&#10;&#10;            &lt;View&#10;                android:id=&quot;@id/swipe_refresh_header&quot;&#10;                android:layout_width=&quot;match_parent&quot;&#10;                android:layout_height=&quot;0.001dp&quot;/&gt;&#10;&#10;            &lt;android.support.v7.widget.RecyclerView&#10;                xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#10;                android:id=&quot;@id/swipe_target&quot;&#10;                android:layout_width=&quot;match_parent&quot;&#10;                android:layout_height=&quot;match_parent&quot;&#10;                tools:listitem=&quot;@layout/$item_name$&quot;/&gt;&#10;&#10;            &lt;View&#10;                android:id=&quot;@id/swipe_load_more_footer&quot;&#10;                android:layout_width=&quot;match_parent&quot;&#10;                android:layout_height=&quot;0.001dp&quot;/&gt;&#10;&#10;        &lt;!--头部必须要。高度大于0。--&gt;&#10;        &lt;!--脚部也必须要。高度大于0。--&gt;&#10;        &lt;!--头部、主体RecycleView、脚部。View id均为固定id。--&gt;&#10;&#10;        &lt;!--使用方式。建议添加  totalList|previousPage|jumpPos  三个变量。--&gt;&#10;        &lt;!--外层大组件，添加监听。内部RecycleView，按照正常方式使用。--&gt;&#10;        &lt;!--注意setOnRefreshing（）和setLoadingMore ，这两者的设定。往复效果。--&gt;&#10;        &lt;!--最后，RecycleView，注意smoothScrollToPosition（）。--&gt;&#10;        &#10;        &lt;!--【防抖动，防跳回】。只单独操作adapter，不要把adapter重复的加载给RecycleView。--&gt;&#10;        &#10;        &lt;/com.aspsine.swipetoloadlayout.SwipeToLoadLayout&gt;&#10;        &#10;        " description="自动生成PullToRefresh_xml" toReformat="false" toShortenFQNames="true">
+    <variable name="pull_index" expression="" defaultValue="&quot;@@@&quot;" alwaysStopAt="true" />
+    <variable name="item_name" expression="" defaultValue="&quot;item_&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+</templateSet>

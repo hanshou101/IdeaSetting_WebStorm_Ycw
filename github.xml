@@ -1,0 +1,13 @@
+<application>
+  <component name="GithubAccounts">
+    <account id="ff96f556-10eb-421d-8e90-194afa02bdb6" name="hanshou101">
+      <server host="github.com" />
+    </account>
+  </component>
+  <component name="GithubSettings">
+    <option name="LOGIN" value="hanshou101" />
+    <option name="AUTH_TYPE" value="BASIC" />
+    <option name="COPY_URL_GIST" value="true" />
+    <option name="PRIVATE_GIST" value="false" />
+  </component>
+</application>

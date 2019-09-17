@@ -1,0 +1,13 @@
+<templateSet group="JavaScript">
+  <template name="border" value="border: 1px solid #f00;" description="border" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="log" value="console.log($END$)" description="log" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>

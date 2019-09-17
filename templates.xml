@@ -1,0 +1,148 @@
+<application>
+  <component name="TemplateSettings">
+    <option name="deletedKeys">
+      <list>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vstore-import" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vaction" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vgetter" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vmutation" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vstore" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vdec" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vinc" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vcomputed" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vc-direct" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vdata" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vfilter" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vimport-export" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vimport" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vimport-gsap" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vimport-lib" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vimport-c" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vmethod" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vmixin" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vprops" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vanimhook-js" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vmixin-use" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vwatcher" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vclass" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vclass-obj" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vel-props" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vsrc" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vclass-obj-mult" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vstyle" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vstyle-obj" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vanim" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vfor" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vmodel" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vmodel-num" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="von" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Vue" />
+          <option name="key" value="vbase" />
+        </TemplateKey>
+      </list>
+    </option>
+  </component>
+</application>

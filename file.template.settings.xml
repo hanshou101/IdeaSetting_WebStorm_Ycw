@@ -1,0 +1,17 @@
+<application>
+  <component name="ExportableFileTemplateSettings">
+    <default_templates>
+      <template name="BgAdmin-Dialog.vue" reformat="false" live-template-enabled="false" />
+      <template name="BgAdmin-List.vue" reformat="false" live-template-enabled="false" />
+      <template name="JS-Vue 1 List Page Magic Template.vue" reformat="false" live-template-enabled="true" />
+      <template name="JS-Vue 2 Dialog Page Magic Template.vue" reformat="false" live-template-enabled="true" />
+      <template name="TS-Dialog-Admin.vue" reformat="false" live-template-enabled="false" />
+      <template name="TS-List-Admin.vue" reformat="false" live-template-enabled="false" />
+      <template name="TS-New-TS-Vue-Template.vue" reformat="true" live-template-enabled="true" />
+      <template name="YuLe-VueTS-List.vue" reformat="false" live-template-enabled="false" />
+    </default_templates>
+    <includes_templates>
+      <template name="File Header.java" reformat="true" live-template-enabled="true" />
+    </includes_templates>
+  </component>
+</application>

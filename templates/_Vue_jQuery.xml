@@ -1,0 +1,106 @@
+<templateSet group="_Vue_jQuery">
+  <template name="my_jquery_a_block_href" value="javascript:void(0);" description="阻断A标签的href跳转" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="TypeScript" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_add_remove_class" value="     // 并把进度条，设置为原色。（先删除所有Class，再添加指定Class）&#10;            $('#bs_progress_div').removeClass().addClass('progress-bar progress-bar-striped active')&#10;" description="jQuery，快速添加Class，快速删除Class" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_ajax_post" value="  $.ajax({&#10;                url: url,&#10;                type: 'post',&#10;                // timeout: 60 * 1000,          // 如果需要判断请求超时，可以加上。&#10;                // 可用JSON-base64；也可用FormData&#10;                data: /*你的数据，可为Json或FormData*/{},&#10;                processData: false,&#10;                contentType: false,&#10;                beforeSend: function (xhr) {&#10;                    // xhr.setRequestHeader(&quot;token&quot;, &quot;例如你的token值&quot;);    &#10;                },&#10;                success: function (data) {&#10;                &#10;                },&#10;                error: function (xhr) {&#10;                &#10;                },&#10;                complete: function (xhr , textStatus) {      // 该回调，类似  try-catch  的finally。&#10;                // 如果有设计  请求超时，则在这里面判断  textStatus == 'timeout'&#10;                &#10;                },&#10;            }&#10;)&#10;" description="快速生成，jQuery的ajax的POST请求" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_bootstrap_message_notify" value="&#10;    &lt;!--提示面板：图片正在压缩中--&gt;&#10;    &lt;div id=&quot;div_message&quot; class=&quot;panel&quot;&#10;         style=&quot;&#10;            position: absolute;&#10;            width: 90%;&#10;            top: 2%;&#10;&#10;            left: 0;&#10;            right: 0;&#10;            margin-left: auto;&#10;            margin-right: auto;&#10;&#10;            border-width: 0px;      /*不显示边框*/&#10;&#10;            display: none;          /*初始化时，隐藏。*/&#10;        &quot;&#10;    &gt;&#10;        &lt;div class=&quot;panel-heading&quot;&#10;             style=&quot;&#10;                padding:5px 10px ;&#10;                color: white;&#10;                background-color: #E72725;&#10;                border-color: #E72725;&#10;             &quot;&#10;        &gt;&#10;            温馨提示&#10;        &lt;/div&gt;&#10;        &lt;div class=&quot;panel-body&quot;&#10;             style=&quot;padding: 8px&quot;&gt;&#10;            读取中，大图将被智能压缩，以节省流量&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;    &lt;!--&#10;    $('#div_message').show()&#10;&#10;    $('#div_message').hide()&#10;    --&gt;&#10;" description="利用BootStrap的面板，来实现message效果。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_custom_input_file" value="&lt;input type=&quot;file&quot; id=&quot;fileElem&quot; multiple accept=&quot;image/*&quot; style=&quot;display:none&quot; onchange=&quot;handleFiles(this.files)&quot;&gt;&#10;&lt;label for=&quot;fileElem&quot;&gt;Select some files&lt;/label&gt;" description="快速添加，自定义样式的&lt;input&gt;标签" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_get_input_value" value="            // 获取一个&lt;input&gt;标签的value。     （标签.value，直接得到）&#10;            var user_name = $('#input_user_name').get(0).value&#10;" description="jQuery，获得&lt;input&gt;标签的内部值" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_html_body_reset" value="        /*快速重置 html、body 标签的样式*/&#10;        html body {&#10;            width: 100vw;&#10;            height: 100vh;&#10;        }&#10;" description="重新设置html、body标签的样式。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_model_dialog" value="  &lt;!--jQuery - 模态框--&gt;&#10;    &lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; id=&quot;myModal&quot;&gt;&#10;        &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;&#10;            &lt;div class=&quot;modal-content&quot;&gt;&#10;                &lt;div class=&quot;modal-header&quot;&gt;&#10;                    &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span&#10;                            aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;&#10;                    &lt;h4 class=&quot;modal-title&quot;&gt;&#10;                        请输入您的尊姓大名&#10;                    &lt;/h4&gt;&#10;                &lt;/div&gt;&#10;                &lt;div class=&quot;modal-body&quot;&gt;&#10;                    &lt;!--放入  BootStrap的输入框。--&gt;&#10;                    &lt;input id=&quot;input_user_name&quot; type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;姓名&quot;&#10;                           aria-describedby=&quot;basic-addon2&quot;&gt;&#10;                &lt;/div&gt;&#10;                &lt;div class=&quot;modal-footer&quot;&gt;&#10;                    &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;取消&lt;/button&gt;&#10;                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; onclick=&quot;save_user_name()&quot;&gt;确认&lt;/button&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&lt;!-- /.modal-content --&gt;&#10;        &lt;/div&gt;&lt;!-- /.modal-dialog --&gt;&#10;    &lt;/div&gt;&lt;!-- /.modal --&gt;&#10;    &#10;    &lt;!--&#10;    &#10;        $('#myModal').modal({})         // BootStrap模态框，启动方法。&#10;&#10;        $('#myModal').modal('hide')     // BootStrap模态框，隐藏方法。&#10;    &#10;    --&gt;" description="快速生成，jQuery的模态框对话框" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_NB_import" value="    &lt;!--TIP 外部引用，建议放在head里面--&gt;&#10;    &#10;    &lt;!--FIXME 使用WebStorm，开启Language-JavaScript-Library-Download jQuery。___开启js-doc自动提示___。--&gt;&#10;    &lt;!--jQuery--&gt;&#10;    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;&#10;    &lt;!--BootStrap - CSS--&gt;&#10;    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css&quot;&#10;          integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;&#10;    &lt;!--BootStrap - JS--&gt;&#10;    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js&quot;&#10;            integrity=&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot;&#10;            crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;" description="jQuery，一键导入js库，在head标签。开箱即用。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_progress" value="    &lt;!--TIP 外部引用，建议放在head里面--&gt;&#10;    &lt;!--jQuery--&gt;&#10;    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;&#10;    &lt;!--BootStrap - CSS--&gt;&#10;    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css&quot;&#10;          integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;&#10;    &lt;!--BootStrap - JS--&gt;&#10;    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js&quot;&#10;            integrity=&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot;&#10;            crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;&#10;&#10;    &lt;div style=&quot;position: relative;&quot;&gt;&#10;        &lt;!--jQuery - 进度条--&gt;&#10;        &lt;div class=&quot;progress&quot; style=&quot;height: 40px;&quot;&gt;&#10;            &lt;!--aria-valuenow 、 aria-valuemin、 aria-valuemax、 均只为朗读属性，并不影响实际值。--&gt;&#10;            &lt;!--你必须通过  style.width  来更改实际进度。--&gt;&#10;            &lt;div class=&quot;progress-bar progress-bar-striped active&quot; role=&quot;progressbar&quot;&#10;                 aria-valuenow=&quot;45&quot;&#10;                 aria-valuemin=&quot;0&quot;&#10;                 aria-valuemax=&quot;100&quot; style=&quot;width: 45%&quot;&gt;&#10;                &lt;!--仅为朗读属性--&gt;&#10;                &lt;span class=&quot;sr-only&quot;&gt;&#10;                    45% Complete&#10;                &lt;/span&gt;&#10;                &lt;span style=&quot;line-height: 40px;font-size: 24px;&quot;&gt;60%&lt;/span&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;" description="快速一键生成，BootStrap的好看进度条。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_remove_input_style" value="        /*去除默认input样式  写在&lt;input&gt;标签的class里面*/&#10;            -webkit-appearance: none;&#10;            -moz-appearance: none;&#10;            appearance: none;" description="去除Input标签，天生自带的样式" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_set_pseudo_class" value="   var cssPseudo = function (t, s) {&#10;                s = document.createElement('style')&#10;                s.innerText = t&#10;                document.body.appendChild(s)&#10;            }&#10;            cssPseudo('.erode:after{content:\'' + user_name + '\'}')        // 通过迂回方式，设置伪类after的样式。&#10;" description="二次修改伪元素、伪类的class样式" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_text_shadow" value="        .text-experiencement {&#10;            /*横向位移  纵向位移  模糊blur位移尺度  颜色*/&#10;            text-shadow: 1px 2px 3px #f00;&#10;        }&#10;" description="快速生成，text文本的shadow阴影" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_jquery_viewport" value="&#10;    &lt;!--ViewPort。禁止移动端缩放--&gt;&#10;    &lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;&quot; name=&quot;viewport&quot;/&gt;&#10;" description="快速添加常用ViewPort，加快移动端进度。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_qrcodejs2_jquery" value="// import QRCode from 'qrcodejs2';&#10;&#10;// TIP 获取二维码图片（根据custom文本）&#10;get_QrCode_addr (list, dom_id_field, text_filed) {&#10;  this.$nextTick(() =&gt; {&#10;    console.log('refs的值为，', this.$refs);&#10;    list.forEach(item =&gt; {&#10;      const addr_ref = this.$refs['addr' + item[dom_id_field]];&#10;      console.log('item为，', item);&#10;      console.log('dom_id_field为，', dom_id_field);&#10;      console.log('item[dom_id_field]为，', item[dom_id_field]);&#10;      console.log('addr_ref的值为，', addr_ref);&#10;&#10;      // FIXME 注意，这里必须要判断  非空&#10;      if (addr_ref) {&#10;        // 逐个生成，二维码&#10;        const qrcode = new QRCode(addr_ref, {&#10;          text: item[text_filed],&#10;          width: 124,&#10;          height: 124,&#10;          colorDark: '#000000', // 显示颜色&#10;          colorLight: '#ffffff', // 背景颜色&#10;          correctLevel: QRCode.CorrectLevel.H, // 质量高度&#10;        });&#10;      }&#10;    });&#10;  });&#10;}," description="快速，运用QRCode，生成【二维码】图片。（甚至不需要依赖jQuery）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+</templateSet>

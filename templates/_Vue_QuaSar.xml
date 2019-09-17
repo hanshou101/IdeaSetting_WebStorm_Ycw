@@ -1,0 +1,122 @@
+<templateSet group="_Vue_QuaSar">
+  <template name="my_q_best_col_flex" value="&lt;div class=&quot;col-md&quot;&gt;会自动填满，剩余下的空间&lt;/div&gt;&#10;&lt;div class=&quot;col-md-5&quot;&gt;会占用总宽度5/12的宽度。&lt;/div&gt;&#10;&lt;div class=&quot;row&quot;&gt;会采用Flex-Row的横向水平布局&lt;/div&gt;&#10;&lt;div class=&quot;column&quot;&gt;会采用Flex-Column的纵向垂直布局&lt;/div&gt;&#10;&lt;div class=&quot;justify-center&quot;&gt;主轴居中&lt;/div&gt;&#10;&lt;div class=&quot;items-center&quot;&gt;副轴居中&lt;/div&gt;&#10;" description="Quasar，【col栅格】+【flex布局】的最佳实践" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_btn" value="q-btn&#10;    class=&quot;q-px-xl&quot; color=&quot;primary&quot; size=&quot;lg&quot;&#10;    :loading=&quot;false&quot;&#10;    @click=&quot;&quot;&#10;    :label=&quot;  '立即提现'  &quot;&#10;&gt;&#10;    &lt;span slot=&quot;loading&quot;&gt;&#10;        &lt;q-spinner-hourglass class=&quot;on-left&quot;&gt;&lt;/q-spinner-hourglass&gt;&#10;        Loading...&#10;    &lt;/span&gt;&#10;&lt;/q-btn&gt;&#10;" description="Quasar，各种状态的按钮" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_btn_group" value="q-btn-group&gt;&#10;            &lt;!--push，陶瓷突出效果，适合q-btn-group和q-btn一起配合使用。glossy，上下分层渐变色效果，适合用于q-btn。--&gt;&#10;            &lt;!--outline，反向轮廓勾勒效果，适合q-btn-group和q-btn一起配合使用。rounded，圆角效果，适合q-btn-group和q-btn一起配合使用。--&gt;&#10;            &lt;!--flat，完全去掉按钮背景，适合q-btn-group外层使用。--&gt;&#10;            &lt;q-btn label=&quot;First&quot; icon=&quot;timeline&quot;&gt;&lt;/q-btn&gt;&#10;            &lt;q-btn label=&quot;Second&quot; icon=&quot;visibility&quot;&gt;&lt;/q-btn&gt;&#10;            &lt;q-btn label=&quot;Third&quot; icon=&quot;update&quot;&gt;&lt;/q-btn&gt;&#10;&lt;/q-btn-group&gt;&#10;" description="Quasar，多个按钮汇成一组" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_card" value="q-card class=&quot;q-mt-lg&quot;&gt;&#10;    &lt;q-card-media&gt;&#10;&#10;    &lt;/q-card-media&gt;&#10;    &lt;q-card-title&gt;&#10;&#10;    &lt;/q-card-title&gt;&#10;    &lt;q-card-separator&gt;&lt;/q-card-separator&gt;&#10;    &lt;q-card-main&gt;&#10;&#10;    &lt;/q-card-main&gt;&#10;    &lt;q-card-actions&gt;&#10;&#10;    &lt;/q-card-actions&gt;&#10;&lt;/q-card&gt;&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_common_util_imports" value="&#10;import { required, helpers } from 'vuelidate/lib/validators';&#10;import { mapMutations, mapActions, mapGetters } from 'vuex';&#10;import errorCode from '../../../common/constants/errorCode';&#10;import { rules } from '../../../common/constants/rules';&#10;import { getterTypes } from '../../../store/getter-types';&#10;import { mutationTypes } from '../../../store/mutation-types';&#10;import { actionTypes } from '../../../store/action-types';&#10;import tool from '../../../common/js/tool';&#10;import { uid } from 'quasar';" description="Quasar项目，常用的工具类（包括FormValidate、Vuex），导入。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_country_select" value="            &lt;div&gt;&#10;              &lt;!--输入用户名。--&gt;&#10;              &lt;VueCountryInternational&#10;                class=&quot;quasar-country-select glay-bg&quot;&#10;                :class=&quot;{'invalid-class': $v.form.countryCode.$error}&quot;&#10;                v-model=&quot;form.countryCode&quot;&#10;                model=&quot;country&quot;&#10;                @onchange=&quot;countrySelect&quot;&#10;                placeholder=&quot;请选择您的国籍&quot;&gt;&#10;               &lt;/VueCountryInternational&gt;&#10;              &lt;div class=&quot;color-error error-tip pt-5&quot;&gt;&#10;                &lt;!--TIP 该校验规则，有任何一处错误  &amp;&amp;  该校验规则，required规则有错误--&gt;&#10;                &lt;span v-show=&quot;$v.form.countryCode.$error &amp;&amp; !$v.form.countryCode.required&quot;&gt;请选择您的国籍&lt;/span&gt;&#10;              &lt;/div&gt;&#10;&#10;              &lt;!--&#10;                    // 导入&#10;                    import VueCountryInternational from '../../../components/vue_country_international/VueCountryInternational';&#10;                  &#10;                    // validations的form里面&#10;                    countryCode: { required },&#10;                  &#10;                    // methods里面&#10;                    countrySelect (option) {    // 国籍select事件&#10;                        this.form.countryName = option.name;&#10;                    },&#10;&#10;              --&gt;&#10;&#10;            &lt;/div&gt;" description="用于Quasar的【国家选择器select】" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_datetime_input" value="q-datetime&#10;            class=&quot;col-2 q-mx-xl&quot;&#10;            color=&quot;purple&quot;&#10;            float-label=&quot;&quot;&#10;            type=&quot;datetime&quot; :popover=&quot;true&quot; :inverted=&quot;false&quot;&#10;            v-model=&quot;dateSelect&quot;&gt;&#10;            &lt;!--clearable，可清除。Date+Time，日期+时间。拥有头部，就不设置minimal。默认popover开启（modal关闭）。--&gt;&#10;            &lt;!--FloatLabel，浮动标签。和Field共用（直接放在q-filed之内即可）。color，前景主题颜色。inverted，将前景颜色转换为背景主题颜色。 --&gt;&#10;&lt;/q-datetime&gt;&#10;" description="QuaSar，日期时间的Input条+内置选择器" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_field" value="q-field&#10;    class=&quot;&quot;&#10;    icon=&quot;cloud&quot;&#10;    label=&quot;显示文字&quot;&#10;    :label-width=&quot;前方标签占用宽度&quot;&#10;&gt;&#10;&lt;/q-field&gt;&#10;" description="Quasar，单行文本显示" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_input" value="q-input&#10;    class=&quot;&quot;&#10;    :loading=&quot;loading&quot; inverted v-model=&quot;绑定字段&quot; color=&quot;绑定颜色&quot;&#10;&gt;&#10;&lt;/q-input&gt;&#10;&#10;" description="Quasar，单行输入框" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_list_and_item" value="q-list no-border&gt;&#10;    &lt;q-item&gt;&#10;        &lt;q-item-side left&gt;&#10;        &lt;/q-item-side&gt;&#10;        &lt;q-item-main&gt;&#10;            &lt;q-item-tile &gt;&#10;            &lt;/q-item-tile&gt;&#10;            &lt;q-item-tile label&gt;&#10;            &lt;/q-item-tile&gt;&#10;        &lt;/q-item-main&gt;&#10;        &lt;q-item-side right&gt;&#10;        &lt;/q-item-side&gt;&#10;    &lt;/q-item&gt;&#10;&lt;/q-list&gt;&#10;" description="Quasar，其实就是LinearLayout布局。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_page" value="q-page padding :style-fn=&quot;&quot;&gt;&#10;    &lt;!--padding，产生内边距。style-fn，一个生成样式的函数（可以动态计算，得出style的JSON对象）--&gt;&#10;&#10;&lt;/q-page&gt;" description="Quasaar，一个页面容器" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_page_sticky" value="q-page-sticky position=&quot;top-right&quot; :expand=&quot;false&quot; :offset=&quot;[18, 18]&quot;&gt;&#10;    &lt;!--把组件，固定在布局区域的静态位置（甚至是滚动区域）。position，相对九个位置中的一个。expand，是否展开模式，比如放其它大型组件。offset，必须是一个[X轴偏移，Y轴偏移]的数组。--&gt;&#10;    &lt;q-btn round color=&quot;primary&quot; @click=&quot;alert&quot; icon=&quot;alarm&quot;&gt;&lt;/q-btn&gt;&#10;&lt;/q-page-sticky&gt;&#10;" description="Quasar，布局区域的静态位置固定辅助。比如固定在右下角。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_select" value="q-select&#10;            class=&quot;col-3 q-ml-md q-mr-xl&quot;&#10;            radio&#10;            color=&quot;primary&quot;&#10;            float-label=&quot;&quot;&#10;            v-model=&quot;coinSelect&quot;&#10;            :options=&quot;coinOptions&quot;&gt;&#10;            &lt;!--radio，单选框模式。float-label，上方提示标签文字。options数组，需要包括label和value，可选icon。--&gt;&#10;&lt;/q-select&gt;" description="Quasar，下拉选择框" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_simplest_table" value="q-table&#10;          class=&quot;  no-shadow  &quot;&#10;          :data=&quot;tableData&quot;&#10;          :columns=&quot;columns&quot;&#10;          row-key=&quot;name&quot;&#10;        &gt;&#10;        &lt;/q-table&gt;&#10;&#10;        &lt;!--&#10;          // 表格列属性&#10;          columns: [&#10;            { field: 'lastUpdate', name: 'lastUpdate', label: '最后更新时间', required: true, align: 'left', sortable: true },&#10;            { field: 'addr', name: 'addr', label: '充值地址', required: true, align: 'left', sortable: true },&#10;            { field: 'volume', name: 'volume', label: '充值数量', required: true, align: 'left', sortable: true },&#10;            { field: 'status', name: 'status', label: '状态', required: true, align: 'left', sortable: true },&#10;          ],&#10;          // 列表数据&#10;          tableData: [&#10;            { lastUpdate: '2018-01-01 00:11:22', addr: 'aabbcc', volume: '123', status: '1' },&#10;          ],&#10;        --&gt;" description="最简单的Quasar，Table表格。（带现成数据）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_tableCard" value="q-table&#10;          grid&#10;          hide-header&#10;          :data=&quot;tableData&quot;&#10;          :columns=&quot;columns&quot;&#10;          :filter=&quot;filter&quot;&#10;          row-key=&quot;name&quot;&#10;        &gt;&#10;          &lt;!--右上方，一个slot插入。一个Search搜索条，直接关联filter筛选字符串。--&gt;&#10;          &lt;template slot=&quot;top-right&quot; slot-scope=&quot;props&quot;&gt;&#10;            &lt;q-search hide-underline clearable v-model=&quot;filter&quot;&gt;&lt;/q-search&gt;&#10;          &lt;/template&gt;&#10;&#10;          &lt;!--一个Grid-Item格式的div。作为表格的单元。--&gt;&#10;          &lt;!--已添加了基础动画。已添加了选中缩放效果。--&gt;&#10;          &lt;div&#10;            slot=&quot;item&quot;&#10;            slot-scope=&quot;props&quot;&#10;            class=&quot;transition-generic&quot;&#10;            :style=&quot;props.selected ? 'transform: scale(0.95);' : ''&quot;&#10;          &gt;&#10;            &lt;!--卡片组件。--&gt;&#10;            &lt;!--已添加了基础动画、鼠标指针。添加了选中class。--&gt;&#10;            &lt;q-card&#10;              class=&quot;transition-generic cursor-pointer&quot;&#10;              :class=&quot;props.selected ? 'bg-grey-2' : ''&quot;&#10;              @click.native=&quot;props.selected = !props.selected&quot;&#10;            &gt;&#10;              &lt;!--卡片：标题。--&gt;&#10;              &lt;q-card-title class=&quot;relative-position&quot;&gt;&#10;                {{ props.row.name }}&#10;              &lt;/q-card-title&gt;&#10;              &lt;!--卡片：分隔线。--&gt;&#10;              &lt;q-card-separator&gt;&lt;/q-card-separator&gt;&#10;              &lt;!--卡片：主体。--&gt;&#10;              &lt;q-card-main class=&quot;q-pa-none&quot;&gt;&#10;&#10;              &lt;/q-card-main&gt;&#10;            &lt;/q-card&gt;&#10;          &lt;/div&gt;&#10;&#10;&#10;          &lt;!--&#10;            columns: [&#10;              {&#10;                name:  '栏目表头-描述字段-别名，给&lt;q-td&gt;的key使用。',&#10;                required: true, //该栏目，是否必须&#10;                label: '栏目表头-显示字段-名字',&#10;                align: 'left',    // 靠左，靠右，或靠中等等&#10;                field: '栏目单元格-字段-名字',    // 从【接口数据】中，取到的字段名字&#10;                sortable: true,   // 是否支持【排序】。&#10;              },&#10;            ],&#10;          --&gt;&#10;&#10;          &lt;!--&#10;            tableData:[&#10;                {&#10;                    字段名字1 : '',&#10;                    字段名字2 : '',&#10;                    字段名字3 : '',&#10;                },&#10;            ],&#10;          --&gt;&#10;&#10;          &lt;!--&#10;          filter:  '作为筛选条件的字符串',&#10;          --&gt;&#10;&#10;        &lt;/q-table&gt;&#10;" description="Quasar，多个卡片表格" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_tableTr" value="q-table&#10;    :data=&quot;列表列表&quot;&#10;    :columns=&quot;表头&quot;&#10;    :row-key=&quot;每个单元行的唯一key的字符串名字&quot;&#10;&gt;&#10;    &lt;q-tr&#10;        slot=&quot;body&quot;&#10;        slot-scope=&quot;props&quot; :props=&quot;props&quot;&#10;        class=&quot;设置自己的class，可用flex和栅格布局&quot;&#10;    &gt;   &#10;        &lt;!--slot，以body作为主体（还有一种item模式）。slot-scope，开启命名。将props属性，指向slot-scope当中的命名。--&gt;&#10;        &lt;q-td&#10;            key=&quot;你的column栏对应的name选项&quot;&#10;            :props=&quot;props&quot;&gt;&#10;        {{props.row.你字段的名字}}&#10;        &lt;/q-td&gt;&#10;    &lt;/q-tr&gt;&#10;&#10;    &lt;!--&#10;      columns: [&#10;        {&#10;          name:  '栏目表头-描述字段-别名，给&lt;q-td&gt;的key使用。',&#10;          required: true, //该栏目，是否必须&#10;          label: '栏目表头-显示字段-名字',&#10;          align: 'left',    // 靠左，靠右，或靠中等等&#10;          field: '栏目单元格-字段-名字',    // 从【接口数据】中，取到的字段名字&#10;          sortable: true,   // 是否支持【排序】。&#10;        },&#10;      ],&#10;    --&gt;&#10;&#10;    &lt;!--&#10;      tableData:[&#10;          {&#10;              字段名字1 : '',&#10;              字段名字2 : '',&#10;              字段名字3 : '',&#10;          },&#10;      ],&#10;    --&gt;&#10;&#10;&lt;/q-table&gt;&#10;" description="Quasar，多行数据表格" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_widget_notify" value="const q_dismiss = this.$q.notify({&#10;        // 必选参数：消息内容。&#10;        message: `A text with your alert's awesome message`,&#10;        // TIP 以下所有参数，都是【可选】&#10;        timeout: 3000, // 以毫秒为单位; 0意味着没有超时&#10;        type: 'positive', // &quot;type&quot;同时添加一个颜色和图标，可用的值: 成功-'positive', 失败-'negative', 警告-'warning', 信息-'info'&#10;        color: 'positive', // 同【type】，但只涉及颜色。&#10;        textColor: 'white', // 文字颜色，默认“white”。 white black 等……&#10;        icon: 'wifi', // 手动设置图标ICON。（和avatar，为互相替换）&#10;        avatar: 'statics/boy-avatar.png', // 手动设置图片avatar。（和icon，为互相替换）&#10;        detail: 'Optional detail message.', // 详情信息内容。&#10;        position: 'top-right', // 显示位置。'top', 'left', 'bottom-left'等&#10;        actions: [ // TIP 交互动作。&#10;          {&#10;            label: 'Snooze', // 按钮文字，必选&#10;            icon: 'timer', // 按钮图标，可选&#10;            noDismiss: true, // 点击之后，信息框是否消失？可选, v0.15.11+&#10;            handler: () =&gt; { // 点击事件。&#10;              console.log('acting');&#10;            },&#10;          },&#10;          {&#10;            label: 'Dismiss',&#10;            handler: () =&gt; {&#10;              console.log('dismissed');&#10;            },&#10;          },&#10;        ],&#10;        onDismiss () { // TIP 信息框，消失的回调。v0.15.11+&#10;          // ...&#10;          console.log('信息框消失了');&#10;        },&#10;      });&#10;      // q_dismiss();  // TIP 如果，需要手动关闭【信息框】的话。" description="显示一个Quasar，小型消息的提示框。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_searchPannel" value="AssetsFinanceSearchPanel&#10;          :searchOptions=&quot;searchOptions&quot;&#10;          :searchFunction=&quot;___get_你的方法名_records&quot;&#10;          :search-route-replace_base-url=&quot;searchRouteReplace_baseUrl&quot;&#10;          &#10;          ref=&quot;searchPanel&quot;&#10;        &gt;&lt;/AssetsFinanceSearchPanel&gt;&#10;&#10;        &lt;!--&#10;        // TIP 导入组件，放入  Components选项中去。&#10;        import AssetsFinanceSearchPanel from '../../../components/assets-finance-search-panel';&#10;&#10;        // TIP 放在data里面&#10;        coinIdOptions: [], // 可供选择的，币种ID  []&#10;&#10;        // TIP 放在mounted里面&#10;            // 设置，币种的  q-select  选项。&#10;            this.coinIdOptions = tool.convertArrToOptions(this.Getter_Coin_List, 'symbol', 'id', true);&#10;&#10;        // TIP 以下两者，放入  computed  当中去。&#10;        searchOptions () {&#10;          return [&#10;            {&#10;              text: '币种',&#10;              field: 'coinId',&#10;              selections: this.coinIdOptions,&#10;              handle_SelectChange_callback: (item, newVal) =&gt; {&#10;                console.log(`父页面的回调。得到SearchPanel的回调：字段：`, item, '\n最新值：', newVal);&#10;                this.selectID = newVal; // 如果computed，此处报  副作用。那没有关系，此处是特殊情况。&#10;                // 通知CoinTabGroup，进行改变。&#10;                this.$refs.coinTabGroup.set_CoinGroup_field('selectID', this.selectID);&#10;              },&#10;            },&#10;            {&#10;              text: '类型',&#10;              field: 'businessType',&#10;              selections: this.businessTypeOptions,&#10;              handle_SelectChange_callback (item) {&#10;                console.log(`父页面，选中项发生了变化：`, item);&#10;              },&#10;            },&#10;          ];&#10;        },&#10;        searchRouteReplace_baseUrl () {&#10;          return this.$route.meta.purePath;&#10;        },&#10;        --&gt;" description="快速导入，自定义的组件，SearchPannel搜索面板" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_coin_tag_group" value="CoinTabGroup&#10;          :tags=&quot;coin_tags&quot;&#10;          :on-new-id-change=&quot;on_CoinGroupID_change&quot;&#10;          ref=&quot;coinTabGroup&quot;&#10;        &gt;&#10;        &lt;/CoinTabGroup&gt;&#10;&#10;        &lt;!--&#10;        // 放在data里面&#10;        coin_tags: [],&#10;        selectID: null, // 当前，所选中的币种值。&#10;&#10;        // 放在mounted里面&#10;        this.coin_tags = this.Getter_Coin_List.map(item =&gt; {&#10;          return {&#10;            tagName: item.symbol + '记录', // 标签显示名称&#10;            // routerLink_withCoinId: '/finance/recharge-record/' + item.id, // 路由跳转链接&#10;            avatar: item.img, // 如果有小图片，则以头像模式显示。&#10;            id: item.id, // 唯一标识。比如币种ID。&#10;          };&#10;        });&#10;&#10;        // 放在methods里面&#10;            // TIP 当上方的CoinGroup，发生所选 ID 变化的事件时。&#10;            on_CoinGroupID_change (newCoinID) {&#10;              console.log('新选择的币种ID为，', newCoinID);&#10;              this.selectID = newCoinID;&#10;&#10;              // 通知SearchPanel，进行改变。&#10;              this.$refs.searchPanel.set_SearchPanel_field('coinId', this.selectID);&#10;            },&#10;&#10;        --&gt;" description="快速导入，自定义的组件，币种Tab选择群组" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_q_timeAll_util" value="// 导入date，从Quasar&#10;import { date } from 'quasar';&#10;// （原生方法）从字符串对象，得到 Date类型对象。&#10;let date1 = new Date('2000-01-01');&#10;// 在已有基础上，增加日期、月份、年份&#10;let date2 = date.addToDate(new Date(), {&#10;  year: undefined,&#10;  month: 1,&#10;  days: 7,&#10;  hours: undefined,&#10;  minutes: undefined,&#10;  seconds: undefined,&#10;  milliseconds: undefined,&#10;});&#10;// 在已有基础上，减少日期、月份、年份&#10;let date3 = date.subtractFromDate(new Date(), { month: 1, days: 7 });&#10;// 将一个Date，转化为  指定的字符串表达形式。&#10;let formattedString = date.formatDate(new Date(), 'YYYY-MM-DDTHH:mm:ss.SSSZ');&#10;// 校验一个字符串，是否  合法的日期字符串&#10;let isDateFormat = date.isValid('Wed, 09 Aug 1995 00:00:00 GMT');&#10;// 已有Date类型，单独调整  年份或月份或日期&#10;let adjustedDate = date.adjustDate(new Date(), { year: 1999, month: 2 });&#10;// 计算几个日期中的，最大值、最小值&#10;let min = date.getMinDate(new Date(2017, 6, 24), new Date(2017, 5, 20), new Date(2017, 6, 26));&#10;let max = date.getMaxDate(new Date(2017, 6, 24), new Date(2017, 5, 20), new Date(2017, 6, 26));&#10;// 计算，一个Date类型，  是否在指定的  Date范围之间。&#10;let dateTarget = new Date();&#10;let dateFrom = new Date('1900-01-01');&#10;let dateTo = new Date('2099-12-31');&#10;let isBetween = date.isBetweenDates(dateTarget, dateFrom, dateTo);&#10;// 计算，两个Date类型之间，相差了  多少时间（用  秒、分、时、日期  等，作为单位）&#10;let diffInt = date.getDateDiff(new Date('1999'), new Date('2050'), 'days');&#10;" description="快速导入，Quasar的所有时间工具方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+</templateSet>

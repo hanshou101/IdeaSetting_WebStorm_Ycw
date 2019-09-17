@@ -1,0 +1,419 @@
+<templateSet group="_Vue_Common">
+  <template name="my_api_crud" value="// TIP 注释描述：~&#10;  $api_name$: {&#10;    //增删改查。&#10;    create(data) {&#10;      return request({&#10;        url: '/$api_prefix$',&#10;        method: 'post',&#10;        data&#10;      })&#10;    },&#10;    delete(data) {&#10;      return request({&#10;        url: '/$api_prefix$',&#10;        method: 'delete',&#10;        data&#10;      })&#10;    },&#10;    update(data) {&#10;      return request({&#10;        url: '/$api_prefix$',&#10;        method: 'put',&#10;        data&#10;      })&#10;    },&#10;    changeStatus(&#10;        id, status,         //用于  UrlEncoded&#10;        /* data, */         //用于  RequestBody&#10;    ) {&#10;      return request({&#10;        url: '/$api_prefix$/此处放入你特定的地址',&#10;        method: 'put',&#10;        params: {           //对应  【UrlEncoded模式】&#10;          &quot;此处放入id在Swagger上面对应的字段&quot;: id,&#10;          status,&#10;        },&#10;        // data:data,       //对应  【RequestBody模式】&#10;      })&#10;    },&#10;    list(form, current, size) {&#10;      let params = {}&#10;      formUtils.formDateRange(params, form)&#10;      params.current = current&#10;      params.size = size&#10;      return request({&#10;        url: '/$api_prefix$',&#10;        method: 'get',&#10;        params: params&#10;      })&#10;    },&#10;    getById(id) {&#10;      return request({&#10;        url: `/$api_prefix$/${id}`,&#10;        method: 'get',&#10;      })&#10;    },&#10;    //&#10;  }," description="快速生成，【增、删、改、查】四个方法的Api。" toReformat="false" toShortenFQNames="true">
+    <variable name="api_name" expression="" defaultValue="&quot;填入该api组的名字&quot;" alwaysStopAt="true" />
+    <variable name="api_prefix" expression="" defaultValue="&quot;放入你要填的url&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_check_elForm_andSubmit" value=" this.$refs['你的表单ref引用名'].validate((valid) =&gt; {&#10;        if (valid) {&#10;          // 校验成功。在这里写你的Submit提交操作。&#10;        } else {            // 校验失败。&#10;          console.log('error submit!!')&#10;          return false          // 返回false，会自动触发所有rule的提示操作。&#10;        }&#10;      })" description="校验&lt;el-form&gt;的输入选项，并且将要执行Submit提交操作。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_click_img_enlarge_zoom_out_dialog" value="el-dialog&#10;      title=&quot;&quot;&#10;      :visible.sync=&quot;centerDialogVisible&quot;&#10;      width=&quot;50%&quot;&#10;      center&gt;&#10;      &lt;img :src=&quot;checkImg&quot; width=&quot;100%&quot;/&gt;&#10;    &lt;/el-dialog&gt;&#10;&#10;    &lt;!--&#10;        // 放在data(){}中，用于状态+数据控制。&#10;        centerDialogVisible: null,      // 控制放大图片的Dialog，是否可见。&#10;        checkImg: null,                 // 控制放大图片的源图路径。&#10;        // 在指定的图片，调用此方法：&#10;        @click=&quot;imgEnlarge(  你的图片在线路径  )&quot;&#10;    --&gt;&#10;" description="用于点击图片后，弹出放大版的图片对话框" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_clone_postForm" value="&#10;        let postForm = {&#10;          // '筛选后保留的key' : '筛选后保留的value' ,&#10;        }&#10;        for (let key in postForm) {&#10;          const target = this.form[key];&#10;          // 过滤一遍，不符合要求的空数据。&#10;          if ( typeof target !== 'undefined' &amp;&amp; target !== null &amp;&amp; target !== '' ) {&#10;            postForm[key] = target; // 按照需要，去取this.ruleForm里面的同名字段。&#10;          }&#10;        }&#10;" description="从this.ruleForm克隆出一条按需分配的postData" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_card" value="el-card&#10;        :body-style=&quot;{/*在这里_定义body部分的_样式_如最外层padding*/}&quot;&#10;        shadow=&quot;hover&quot;&#10;        class=&quot;box-card&quot;&gt;&#10;        &lt;!--【el-card】:shadow，设置阴影的显示时机。always ,hover ,never。默认always。--&gt;&#10;&#10;        &lt;div slot=&quot;header&quot;&gt;&#10;          &lt;span&gt;在这里_标题&lt;/span&gt;&#10;        &lt;/div&gt;&#10;&#10;        &lt;div&gt;&#10;          &#10;          &#10;          在这里_列表内容&#10;          &#10;          &#10;        &lt;/div&gt;&#10;&#10;      &lt;/el-card&gt;&#10;" description="通用的&lt;el-card&gt;卡片容器提供" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_datePicker" value="el-form-item :label=&quot;$t('form.Time_Picker_Label')&quot;&gt;&#10;        &lt;!--daterange，选择日期+起始范围。--&gt;&#10;        &lt;!--format，显示格式。value-format，双向绑定的数据格式。--&gt;&#10;        &lt;!--editable，用户是否可以键盘输入时间值。clearable，清除按钮。--&gt;&#10;        &lt;el-date-picker v-model=&quot;绑定某个Form.的某个值&quot;&#10;                        type=&quot;daterange&quot;&#10;                        format=&quot;yyyy-MM-dd&quot;&#10;                        value-format=&quot;yyyy-MM-dd&quot;&#10;                        :start-placeholder=&quot;$t('form.Time_Picker_Start_Time')&quot;&#10;                        :end-placeholder=&quot;$t('form.Time_Picker_End_Time')&quot;&#10;                        class=&quot;widthauto&quot; :editable=&quot;false&quot; clearable&gt;&#10;        &lt;/el-date-picker&gt;&#10;      &lt;/el-form-item&gt;" description="通用的&lt;el-date-picker&gt;时间选择提供" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_dialog" value="el-dialog&#10;      :title=&quot;$t($yourDialogData$.title)&quot;&#10;      :visible.sync=&quot;$yourDialogData$.visible&quot;&#10;      @close=&quot;()=&gt;{/*$yourDialogData$.closeCallback*/}&quot;&#10;      width=&quot;60%&quot;&gt;&#10;      &lt;!--自定义对话框开始--&gt;&#10;&#10;      &lt;!--总表单--&gt;&#10;      &lt;el-form :model=&quot;$yourDialogData$.form&quot; :rules=&quot;$yourDialogData$.rule&quot; :ref=&quot;$yourDialogData$.refName&quot;&#10;               label-width=&quot;180px&quot; class=&quot;dialog-container&quot;&gt;&#10;&#10;        &lt;!--普通文本输入值--&gt;&#10;        &lt;el-form-item :label=&quot;$t('你的国际化语言地址')&quot; prop=&quot;对应的表单校验值&quot;&gt;&#10;          &lt;el-input v-model=&quot;$yourDialogData$.form.的某个值&quot; class=&quot;form-input&quot; clearable&gt;&lt;/el-input&gt;&#10;        &lt;/el-form-item&gt;&#10;&#10;        &lt;el-form-item :label=&quot;$t('你的国际化语言地址')&quot; prop=&quot;对应的表单校验值&quot;&gt;&#10;          &lt;el-select v-model=&quot;$yourDialogData$.form.的某个值&quot;&#10;                     class=&quot;form-input&quot; clearable&gt;&#10;            &lt;el-option v-for=&quot;(item,index) in 可选择列表_必须是列表_item元素_index索引  &quot;&#10;                       :key=&quot;index&quot;&#10;                       :label=&quot;item.标签名&quot;&#10;                       :value=&quot;item.选项真值&quot;&gt;&lt;/el-option&gt;&#10;          &lt;/el-select&gt;&#10;        &lt;/el-form-item&gt;&#10;&#10;        &lt;MultiLangPlus :ruleForm=&quot;$yourDialogData$.form&quot; :rules=&quot;$yourDialogData$.rule&quot; :ruleFormRef=&quot;$yourDialogData$.refName&quot;&#10;                       :labelName=&quot;$yourDialogData$.labelName&quot;&gt;&lt;/MultiLangPlus&gt;&#10;        &lt;!--。--&gt;&#10;      &lt;/el-form&gt;&#10;&#10;      &lt;!--对话框按钮组：确定、取消--&gt;&#10;      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;&#10;            &lt;!--取消按钮。将会把this.dialogVisible值变为false--&gt;&#10;            &lt;el-button @click=&quot;$yourDialogData$.visible = false&quot;&gt;&#10;              {{$t('dialog.Cancel')}}&#10;            &lt;/el-button&gt;&#10;&#10;        &lt;!--确定按钮。submitForm方法提交ruleFormRef表单。--&gt;&#10;            &lt;el-button @click=&quot;$yourDialogData$.clickCallback&quot;&#10;                       type=&quot;primary&quot;&gt;&#10;              {{$t('dialog.Confirm')}}&#10;            &lt;/el-button&gt;&#10;        &lt;/span&gt;&#10;&#10;      &lt;!--自定义对话框结束--&gt;&#10;    &lt;/el-dialog&gt;&#10;&#10;&#10;    &lt;!--&#10;        $yourDialogData$: {&#10;          title: '标题',&#10;          visible: false,&#10;          refName: '$yourDialogData$Ref',&#10;          labelName: '',&#10;          form: {&#10;            //&#10;          },&#10;          rule: {&#10;            //&#10;          },&#10;          closeCallback() {&#10;&#10;          },&#10;          clickCallback() {&#10;&#10;          },&#10;        },&#10;    --&gt;" description="通用的&lt;el-dialog&gt;选项提供（内附带一张表单）" toReformat="true" toShortenFQNames="true">
+    <variable name="yourDialogData" expression="" defaultValue="&quot;yourDialogData&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_row_col" value="el-row&#10;        :gutter=&quot;0&quot;&#10;        type=&quot;flex&quot;&gt;&#10;        &lt;!--【el-row中】:gutter，每一栏之间的间隔。--&gt;&#10;        &lt;!--【el-col中】:offset，向右偏移的栏数（一行总共24栏）。--&gt;&#10;        &lt;!--【el-col中】:justify，启用flex布局。可以设置一栏的【水平排版】方式。start, center, end, space-between, space-around。默认start。--&gt;&#10;        &lt;!--【el-col中】:align，启用flex布局。可以设置一栏的【垂直】方式。top, middle, bottom。默认top。--&gt;&#10;        &lt;!--【el-col中】响应式布局，xs、sm、md、lg 和 xl。一条龙设置好各种屏幕尺寸下，显示比例。--&gt;&#10;        &lt;el-col :span=&quot;8&quot; :offset=&quot;0&quot; :justify=&quot;'start'&quot; :align=&quot;'middle'&quot;&gt;&#10;          &lt;div&gt;&lt;/div&gt;&#10;        &lt;/el-col&gt;&#10;        &lt;el-col :span=&quot;8&quot; :offset=&quot;0&quot; :justify=&quot;'start'&quot; :align=&quot;'middle'&quot;&gt;&#10;          &lt;div&gt;&lt;/div&gt;&#10;        &lt;/el-col&gt;&#10;        &lt;el-col :span=&quot;8&quot; :offset=&quot;0&quot; :justify=&quot;'start'&quot; :align=&quot;'middle'&quot;&gt;&#10;          &lt;div&gt;&lt;/div&gt;&#10;        &lt;/el-col&gt;&#10;      &lt;/el-row&gt;&#10;" description="通用的&lt;el-row&gt;布局和&lt;el-col&gt;布局提供" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_select" value="el-form-item :label=&quot;$t('你的国际化语言地址')&quot; prop=&quot;对应的表单校验值&quot;&gt;&#10;        &lt;el-select v-model=&quot;绑定某个Form.的某个值&quot; &#10;            class=&quot;form-input&quot; clearable&gt;&#10;          &lt;!--FIXME Vue的v-for中，遍历数组，会采用  (元素)  (元素，索引)  in  列表  的形式。--&gt;&#10;          &lt;el-option v-for=&quot;(value_obj,key_index) in 可选择列表_必须是列表_item元素_index索引  &quot;&#10;                 :key=&quot;key_index&quot;&#10;                 :label=&quot;value_obj.标签名&quot;&#10;                 :value=&quot;parseInt( key_index.选项真值 | 此处，切记注意，太长的数字ID，比如币种ID，会丢失精度，所以太长的话就禁止使用parseInt )&quot;&gt;&lt;/el-option&gt;&#10;                 &#10;          &lt;!--&amp;lt;!&amp;ndash;禁用&amp;ndash;&amp;gt;--&gt;&#10;          &lt;!--&lt;el-option key=&quot;0&quot; :value=&quot;0&quot;--&gt;&#10;                     &lt;!--:label=&quot;$t('form.Disable')&quot;&gt;&lt;/el-option&gt;--&gt;&#10;          &lt;!--&amp;lt;!&amp;ndash;启用&amp;ndash;&amp;gt;--&gt;&#10;          &lt;!--&lt;el-option key=&quot;1&quot; :value=&quot;1&quot;--&gt;&#10;                     &lt;!--:label=&quot;$t('form.Enable')&quot;&gt;&lt;/el-option&gt;--&gt;       &#10;          &#10;        &lt;/el-select&gt;&#10;    &lt;/el-form-item&gt;" description="通用的&lt;el-select&gt;选项提供" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_table_img" value="el-table-column&#10;        :label=&quot;$t('你的国际化语言地址')&quot;&gt;&#10;        &lt;template slot-scope=&quot;scope&quot;&gt;&#10;          &lt;img :src=&quot;scope.row.你的图片地址&quot;&#10;               class=&quot;logoImg&quot;/&gt;&#10;        &lt;/template&gt;&#10;      &lt;/el-table-column&gt;&#10;" description="通用的&lt;el-table&gt;中的图片&lt;img&gt;。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_tabs" value="el-tabs v-model=&quot;在这里_当前激活标签的name值_双向绑定&quot;&#10;               @tab-click=&quot;(click_tab,click_event)=&gt;{}&quot;&#10;               type=&quot;border-card&quot;&gt;&#10;&#10;        &lt;el-tab-pane :label=&quot;'显示的标签'&quot;&#10;                     :name=&quot;'标签所对应的值'&quot;&gt;&#10;          &lt;div&gt;&lt;/div&gt;&#10;        &lt;/el-tab-pane&gt;&#10;        &#10;      &lt;/el-tabs&gt;&#10;" description="通用的&lt;el-tabs&gt;多选项卡提供" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_commonUI_el_upload" value="el-form-item :label=&quot;$t('你的国际化语言地址')&quot; prop=&quot;对应的表单校验值&quot;&gt;&#10;    &lt;!--常用于单一图片上传，如：用户头像上传--&gt;&#10;    &lt;!--handleUploadSuccess，默认将成功url，传递到this.ruleForm.value（真的就叫value）--&gt;&#10;    &lt;el-upload&#10;      class=&quot;avatar-uploader&quot;&#10;      :action=&quot;uploadHost&quot;&#10;      :show-file-list=&quot;false&quot;&#10;      :on-success=&quot;handleUploadSuccess&quot;&#10;      :data=&quot;uploadData&quot;&#10;      :before-upload=&quot;beforeUpload&quot;&#10;    &gt;&#10;      &lt;img v-if=&quot;绑定的某个Form.的用于存放图片Url的值_默认建议为null_可能需要forceUpdate强制渲染&quot;&#10;           :src=&quot;绑定的某个Form.的用于存放图片Url的值_默认建议为null_可能需要forceUpdate强制渲染&quot;&#10;           class=&quot;avatar&quot;&gt;&#10;      &lt;i v-else class=&quot;el-icon-plus avatar-uploader-icon&quot;&gt;&lt;/i&gt;&#10;    &lt;/el-upload&gt;&#10;  &lt;/el-form-item&gt;" description="通用的&lt;el-upload&gt;单张图片上传提供" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_country_multi_selector" value="el-form-item :label=&quot;$t('form.Country')&quot; prop=&quot;你的国籍字段&quot;&gt;&#10;  &lt;!--国籍--&gt;&#10;    &lt;VueCountryInternational v-model=&quot;ruleForm.你的国籍字段&quot; model=&quot;country&quot;&#10;                                 class=&quot;form-input-large&quot;&#10;                                 @onRemove=&quot;onRemove&quot;&gt;&lt;/VueCountryInternational&gt;&#10;  &lt;/el-form-item&gt;&#10;&#10;      &lt;!--&#10;      // 导入【国家选择】组件。&#10;      import VueCountryInternational&#10;        from '@/components/vue_country_international/VueCountryInternational'&#10;      --&gt;&#10;&#10;      &lt;!--&#10;      // 处理BackPress按键的方法。&#10;      onRemove() {&#10;        this.ruleForm.你的国籍字段= &quot;&quot;&#10;      },&#10;      --&gt;" description="提供【国家选择】的Vue组件模板，开箱即用导入" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_customUI_multilang_tag" value="el-table-column&#10;        :label=&quot;$t('你的国际化语言地址')&quot;&#10;        prop=&quot;对应的表单校验值&quot;&gt;&#10;        &lt;template slot-scope=&quot;scope&quot;&gt;&#10;          &lt;MultiLangTag :data=&quot;scope.row.的某个值&quot;&gt;&lt;/MultiLangTag&gt;&#10;        &lt;/template&gt;&#10;      &lt;/el-table-column&gt;&#10;      &lt;!--&#10;        import MultiLangTag from '../../components/MultiLang/MultiLangTag' &#10;      --&gt;" description="用于多个语言的&lt;el-tag&gt;标签彩色显示。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_es6_array_for_of" value="        // FIXME ES6当中，遍历【数组】，建议采用此后形式：  for  索引  of  列表   。&#10;        for (let item of 一个列表) {&#10;          console.log('遍历出，列表中的元素为：', item)&#10;        }" description="仅仅只用于，数组的元素遍历（ES6）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_es6_object_for_in" value="        // FIXME CommonJS当中，遍历【对象】，采用  for  变量名  in  一个对象  的形式&#10;        for (let param_key in 一个对象) {&#10;          一个对象[param_key]&#10;        }" description="仅仅只用于，对象的属性遍历（ES6）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_props_jsonObj" value="    props: {&#10;      any_prop: {},&#10;      number_prop: {&#10;        type: Number,   // 数据类型，设置&#10;        default: 0,     // 默认值，设置&#10;      },&#10;      array_prop: {&#10;        type: Array,    // 数据类型：数组&#10;        default: function () {&#10;          return []     // 动态方法，返回默认值&#10;        }&#10;      }&#10;      // 除此之外，还有一个props:['prop属性名1','prop属性名2']这样的写法。（Vue总共有两种模式：简单模式，简单字符串数组；高级模式，JSON对象手动指定各个prop属性。前者无过滤机制；后者有顾虑机制。）&#10;    }," description="用于生成Vue组件Components的props属性清单" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_route_all_api" value="this.$route.meta.___            // meta信息&#10;this.$route.query.___           // query，浏览器url，？号之后，路径上的参数信息（好处是，可以自由传递）&#10;this.$route.params.___          // params，浏览器url，Restful命名法，/号隔开的参数信息（好处是，可以自由传递）&#10;this.$route.path                // #号后面，的绝对路径。（不带参数）&#10;this.$route.fullPath            // 带#号  +  #号后面，的绝对路径  +  查询的参数，  三者一起。  " description="所有和Vuex的$route相关的api。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_router_push_jump" value="this.$router.push({path: `./相对路径_地址在此/${你的携带参数}` , })&#10;this.$router.push({path: `/绝对路径_地址在此/${你的携带参数}` , })&#10;//router.js文件里，在每个路由的path路径末尾，添加:any_key，来标识变量名，进行承接&#10;//在跳转前往的新页面，使用  this.$route.params.any_key  ，来承接上个页面的Url携带参数值   // 可直接由路由定义（写在router.js文件里），也可以由js脚本定义（在this.$router.push方法里，为params属性加上JSON对象）     // 参考链接：http://www.php.cn/js-tutorial-406276.html" description="使用Vue的$router，进行路由页面跳转" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_rules_form_check" value="&#10;      rules: {&#10;        &quot;必须要填项&quot;: [{&#10;          required: true, message: '这一项是必填的',&#10;        }],&#10;        &quot;不同监听时机&quot;: [{&#10;          required: true, message: '同时监听change_blur事件', trigger: &quot;change,blur&quot;,&#10;        }],&#10;        &quot;校验指定的输入内容类型&quot;: [{&#10;          type: &quot;number,array,string&quot;,&#10;          require: true, message: '检测是否数字_列表_字符串', trigger: &quot;change,blur&quot;,&#10;        }],&#10;        &quot;自定义validator验证器&quot;: [{&#10;          require: true, validator: (rule, value, callback) =&gt; {&#10;            if (value == '错误的条件') {&#10;              callback(new Error('提示用户'))     //验证不通过。&#10;            } else {&#10;              callback()                //条件正常，验证通过。&#10;            }&#10;          }, trigger: &quot;change,blur&quot;,&#10;        }],&#10;        &quot;带transform前置快捷转化的规则&quot;: [{&#10;          require: true, message: &quot;这是经过转化之后_再进行的校验&quot;, trigger: &quot;change&quot;, transform(value) {&#10;            //  value = parseFloat(value)&#10;            return value    // return之前，可以对value进行部分转化。（比如字符串转数字，数字转字符串）&#10;          },&#10;        }],&#10;      },&#10;" description="常见的&lt;el-form&gt;表单校验项，校验规则" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_store_state_in_vue" value="// import Vue from 'vue'&#10;// import Vuex from 'vuex'&#10;//&#10;// Vue.use(Vuex)&#10;&#10;const my_module_1 = {&#10;  state: {&#10;    a: {&#10;      b: 'b',&#10;      c: 'c',&#10;    },&#10;    d: 1234567,&#10;  },&#10;  mutations: {&#10;    SET_B_VALUE: (cur_state, new_b_value) =&gt; {&#10;      cur_state.a.b = new_b_value&#10;    },&#10;    ADD_D_VALUE: (cur_state, d_plus_value) =&gt; {&#10;      cur_state.d = cur_state.d + d_plus_value&#10;    },&#10;  },&#10;  actions: {&#10;    setB_value: ({commit,}, new_b_value) =&gt; {&#10;      return new Promise((resolve, reject) =&gt; {                   // TIP 此处，进行resolve版的强化。可返回一个成功回调。&#10;        setTimeout(() =&gt; {&#10;          commit('SET_B_VALUE', new_b_value)&#10;          resolve()&#10;        }, 1000)&#10;      })&#10;&#10;    },&#10;    add_value_of_d: ({commit,}, d_plus_value) =&gt; {&#10;      return new Promise((resolve, reject) =&gt; {                   // TIP 此处，进行reject版的强化。可返回一个失败回调。&#10;        var timer = setInterval(() =&gt; {&#10;          commit('ADD_D_VALUE', d_plus_value)&#10;          clearInterval(timer)&#10;          reject()&#10;        }, 500)&#10;      })&#10;    },&#10;  },&#10;}&#10;&#10;const my_getters = {&#10;  cur_b_value: (cur_state) =&gt; {&#10;    return cur_state.a.b&#10;  },&#10;  cur_d_value: (cur_state) =&gt; {&#10;    return cur_state.d&#10;  },&#10;}&#10;&#10;const my_store = new Vuex.Store({&#10;  mudules: // 分模块&#10;    {&#10;      my_module_1,&#10;    },&#10;  getters: /* 统一到一处getters*/ my_getters,&#10;})&#10;&#10;// TIP 发送事件&#10;// TIP 发送事件 ① 如果在外部，可以获得my_store实例&#10;my_store.dispatch('你的Action事件名。', '其它参数')&#10;&#10;// TIP 发送事件 ② 如果在内部，则可以通过  this.$store  获得my_store实例&#10;this.$store.dispatch('你的Action事件名。', '其它参数')&#10;&#10;// TIP 获取数据&#10;// TIP 获取数据 ① 直接拿到getters对象，来获取&#10;this.$store.getters['你要拿的state状态，对应的获取方法名']           // TIP 这里一定要注意。本来getter里面都是一个个的方法；而此处，仅仅作为属性变量调用就好；话说这种设计，真是有点丑陋（或许也有可能是我理解错了？）&#10;// TIP 获取数据 ② 通过Vue的computed里的...getters，来进行字符串获取&#10;import {mapGetters,} from 'vuex'&#10;&#10;export default {&#10;  computed: {&#10;    ...mapGetters(['你的store的getters里的获取方法名1', '你的store的getters里的获取方法名2',]),    // TIP 需要注意的内容，同方式①   // 这些解压开的获取方法，最后都会转化为  Component的computed选项中的属性值，方便进行调用。（即，this.XXX；因为天生，computed和data的调用方式，就是一样。（但是顺序，永远在data之后。））&#10;  },&#10;}&#10;&#10;// new Vue(&#10;//   {&#10;//     el: '你的根节点ID',&#10;//     // router,&#10;//     store: my_store,      // 在此，总线里，注册生效。&#10;//     // template:'&lt;App/&gt;'      // 该Vue实例，内部的内容。&#10;//     // components:{  你的Component中，最外层的一个  }   // 因为template的内容，调用了App。所以这里，要注册template所需要使用的Component。&#10;//   }&#10;// )&#10;//&#10;" description="快速生成，符合框架标准的，store和state代码。（注意，dispatch值，和commit值，可以通过常量来进行登记）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_stylus_type" value=" lang=&quot;stylus&quot; type=&quot;text/stylus&quot;" description="快速生成Stylus的Type属性。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_templateUI_dialog_box" value="$yourName$Dialog :ref=&quot;'$yourName$DialogRef'&quot;&#10;                 v-if=&quot;$yourName$Dialog_visible&quot;&#10;                 @refreshList=&quot;_getList&quot;&#10;                 @closeDialogEvent=&quot;$yourName$Dialog_visible = false&quot;&gt;&#10;    &lt;/$yourName$Dialog&gt;&#10;&#10;    &lt;!--&#10;        $yourName$Dialog_visible: false,     //某一个对话框的控制器是否可见。放在this.data里面。&#10;    --&gt;&#10;    &#10;    &lt;!--&#10;        import $yourName$Dialog from './component/你的Dialog地址'       //导入，并且放在Vue的components里面。&#10;    --&gt;&#10;    &#10;    &lt;!--&#10;        // 当启动对话框时，使用这个方法。&#10;        this.$yourName$Dialog_visible = true&#10;        this.$nextTick(() =&gt; {&#10;            this.$refs.$yourName$DialogRef.showDialog(2,&#10;                row ? Object.assign({}, row) : null )    //传入数据。&#10;        })&#10;    --&gt;" description="提供基于Dialog文件模板，的多个Dialog开箱即用导入" toReformat="false" toShortenFQNames="true">
+    <variable name="yourName" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_vue_lifecycle" value=" {&#10;    name:'',&#10;    components: {&#10;     /*组件*/&#10;    },&#10;    filters: {},&#10;    mixins: [&#10;     /*混入*/&#10;    ],&#10;    props: {},&#10;    data() {&#10;      return {&#10;        // rules: {&#10;          // 可通过Live Template，生成rules。&#10;        // },&#10;        // ruleForm: {&#10;          // 你的列表查询提交数据。（也将会和【MultiLang】组件内部，进行并组）&#10;        // }&#10;      }&#10;    },&#10;    computed: {&#10;      ...mapGetters([ /*你的Vuex-getter们*/ ]),&#10;    },&#10;    watch: {&#10;      // TIP 切记，watch里面的最外层声明，不能使用箭头函数。（使用了会报错；反而，不使用不会影响this的使用。）&#10;      // TIP deep属性为true，将会同时监听对象内部值的变化。&#10;      // TIP immediate属性，将会立即以表达式的当前值，触发一次回调。（一般用于，监听props在初始化时传入的数据。）                参考资料：https://cn.vuejs.org/v2/api/#vm-watch&#10;      // TIP 而对于那些由网络请求拿到的异步传入的props，普通的watch，就可以充分地监听到数据。（反而是一开始初始化时就完善的props，需要用immediate属性来监听。）&#10;      // TIP 如果不低于两个属性，则原本的方法，用handler属性，存放。&#10;&#10;    },&#10;    created() {&#10;    },&#10;    mounted() {&#10;    },&#10;    updated() {&#10;    },&#10;    activated() {&#10;    },&#10;    destroyed() {&#10;    },&#10;    methods: {&#10;    &#10;    }&#10;}" description="按照官方推荐顺序的，Vue组件的大部分选项。放在export-default里面。" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$alert" value="&#10;this.$alert('内容在此', '标题在此', {&#10;  confirmButtonText: '确认按钮',&#10;  type: 'success',                                                          //不同状态：primary,success,info,warning,error&#10;  callback: action =&gt; {&#10;    if (action === &quot;confirm&quot;) {                                              //确认&#10;&#10;    } else if (action === &quot;cancel&quot;) {                                        //取消&#10;&#10;    }&#10;  }&#10;})&#10;" description="弹出Alert对话框。仅有一个确定按钮。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$confirm" value="&#10;this.$confirm('内容在此', '标题在此', {&#10;  distinguishCancelAndClose: false,                                             //默认false。是否将【点击取消】（点击取消按钮）与【点击关闭】（点击关闭按钮或遮罩层、按下 ESC 键）进行区分。&#10;  type: 'success',                                                              //不同状态：primary,success,info,warning,error&#10;  confirmButtonText: '确认按钮',&#10;  cancelButtonText: '取消按钮',&#10;})&#10;  .then(() =&gt; {                                                                 //按下【确认按钮】&#10;&#10;  })&#10;  .catch(action =&gt; {&#10;      if (action === &quot;cancel&quot;) {                                                   //触发【Cancel】事件&#10;&#10;      } else if (action === &quot;close&quot;) {                                             //触发【Close】事件&#10;&#10;      }&#10;    })&#10;&#10;" description="弹出带有【确定】和【取消】的选择对话框Confirm。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$loading" value="&#10;        const loading_widget = this.$loading({&#10;          // target:dom_obj或document.querySelector的字符串参数,  // Loading所覆盖作用的DOM节点。可传入DOM对象，或查询字符串。默认为【document.body】&#10;          // body: false,                                       // 是否仅作用于body的Loading。默认false。（默认用全屏Loading）&#10;          fullscreen: true,                                     // 是否全屏Loading。默认true。&#10;          lock: true,                                           // 是否锁定滚轮上下滚动。默认false&#10;          text: '后台处理中...',&#10;          // TIP 此处，【spinner】如果不设置（取默认值），则默认值为奶蓝色的衔尾蛇SVG图标。（相比起其它小图标，要好看很多。）&#10;          // spinner: 'el-icon-loading',                           // 加载中显示的图标类名。（可以指定为其它的Element图标。）&#10;          // TIP 此处，【background】的默认遮罩颜色，为'rgba(255,255,255,0.9)'&#10;          // background: 'rgba(255, 255, 255, 0.9)',                     // 遮罩的背景色。&#10;          customClass: '',                                      // 可以自定义Loading的CSS类名。&#10;        })&#10;        // loading_widget.close()                 // TIP 你需要在合理的时候，关闭这一层Loading遮罩。&#10;" description="弹出一个Loading框，可以指定tagetDOM，然后，可以手动在适合的时候关闭。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$message" value="this.$message({&#10;  type: 'success',                                                              //不同状态：primary,success,info,warning,error&#10;  showClose: true,                                                              //是否显示关闭按钮&#10;  message: '消息提示内容在此',&#10;  duration: 3000,                                                               //设置为0时，将不会自动关闭。默认为3000，消息消失前时间。&#10;  center: false,                                                                //默认为否：否时，为向左靠齐。是：将文字水平居中。&#10;})" description="顶部，弹出迷你Message长条提示。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$msgbox" value="&#10;        this.$msgbox(&#10;          {&#10;            title: '标题在此',&#10;            message: '内容在此',&#10;            confirmButtonText: '确定按钮',&#10;            showCancelButton: true,                                               //默认为false。是否显示取消按钮。&#10;            cancelButtonText: '取消按钮',&#10;            beforeClose: (                                                        // MessageBox，关闭之前的回调。会阻塞对话框的关闭。&#10;              action,                                                                 //可选action为：'confirm', 'cancel'或'close'；&#10;              instance,                                                               // MessageBox的实例；可以获得属性和方法&#10;              done,) =&gt; {                                                             // 执行done函数，可以关闭对话框&#10;&#10;            }&#10;          }&#10;        ).then((action) =&gt; {                                                      //此处，点击确认按钮。&#10;&#10;        }).catch(() =&gt; {                                                          //【取消】或【关闭】之后，触发的回调。&#10;&#10;        })&#10;" description="弹出【功能强大完善】的对话框MsgBox。Alert、Confirm、Prompt，均是MsgBox的二次包装。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$notify" value="        this.$notify({&#10;          type: 'success',                                                          //不同状态：primary,success,info,warning,error&#10;          title: '标题在此',&#10;          message: '右侧提示内容在此',&#10;          duration: 4500,                                                           //设置为0，可以一直显示（直到点击关闭按钮）。默认为4500毫秒后自动关闭（比$message多1500毫秒）。&#10;          position: 'top-right',                                                    //弹出位置。默认为top-right。支持四个选项：top-right、top-left、bottom-right、bottom-left.&#10;          offset: 0,                                                                //消息框，距屏幕边缘的偏移量。默认为0。（注意在同一时刻，所有的 Notification 实例应当具有一个相同的偏移量。）&#10;          showClose: true,                                                          //默认为true。是否显示关闭按钮。&#10;        })" description="右侧，弹出Notify长方矩形的提示框。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="my_widget_$prompt" value="&#10;this.$prompt('输入框上方内容在此', '标题在此', {&#10;  confirmButtonText: '确认按钮',&#10;  cancelButtonText: '取消按钮',&#10;  inputPattern: /[\w!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[\w!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,      //输入框的正则校验在此。&#10;  inputErrorMessage: '输入框的正则校验提示在此_邮箱格式不正确',&#10;  //inputValidator(value){},                                                //输入框的校验函数。可以返回布尔值（是否通过验证）；或字符串，若返回一个字符串, 则校验不通过；且返回结果会被赋值给inputErrorMessage（用户输入指导）&#10;}).then(({value}) =&gt; {                                                      //此处，点击确认按钮，并拿到输入框的值。&#10;&#10;}).catch(() =&gt; {                                                            //【取消】或【关闭】&#10;         &#10;})&#10;" description="弹出带输入框的对话框Prompt（并且该对话框，可以对输入内容校验）。" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+  <template name="vaction" value="actions: {&#10; $updateValue$({commit}, $payload$) {&#10;  commit($updateValue$, $payload$);&#10; }&#10;}" description="Vuex action" toReformat="true" toShortenFQNames="true">
+    <variable name="updateValue" expression="" defaultValue="&quot;updateValue&quot;" alwaysStopAt="true" />
+    <variable name="payload" expression="" defaultValue="&quot;payload&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vanim" value="&lt;transition&#10; mode=&quot;out-in&quot;&#10; @before-enter=&quot;beforeEnter&quot;&#10; @enter=&quot;enter&quot;&#10;&#10; @before-leave=&quot;beforeLeave&quot;&#10; @leave=&quot;leave&quot;&#10; :css=&quot;false&quot;&gt;&#10;&#10;&lt;/transition&gt;" description="Vue transition component with JavaScript hooks" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vanimhook-js" value="methods: {&#10; beforeEnter(el) {&#10;  console.log('beforeEnter');&#10; },&#10; enter(el, done) {&#10;  console.log('enter');&#10;  done();&#10; },&#10; beforeLeave(el) {&#10;  console.log('beforeLeave');&#10; },&#10; leave(el, done) {&#10;  console.log('leave');&#10;  done();&#10; },&#10;}," description="Vue transition methods with JavaScript hooks" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vbase" value="&lt;template&gt;&#10; &lt;div&gt;&#10;&#10; &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10; export default {&#10;  $END$&#10; }&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;&#10;&lt;/style&gt;" description="Vue single file component" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="VUE_TOP_LEVEL" value="true" />
+    </context>
+  </template>
+  <template name="vc-direct" value="Vue.directive('$directiveName$', {&#10; bind(el, binding, vnode) {&#10;  el.style.$arg$ = binding.value.$arg$;&#10; }&#10;});" description="Vue custom directive" toReformat="true" toShortenFQNames="true">
+    <variable name="directiveName" expression="" defaultValue="&quot;directiveName&quot;" alwaysStopAt="true" />
+    <variable name="arg" expression="" defaultValue="&quot;arg&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vclass" value="&lt;$div$ :class=&quot;{ $className$: $data$ }&quot;&gt;&lt;/$div$&gt;" description="Vue class binding" toReformat="true" toShortenFQNames="true">
+    <variable name="div" expression="" defaultValue="&quot;div&quot;" alwaysStopAt="true" />
+    <variable name="className" expression="" defaultValue="&quot;className&quot;" alwaysStopAt="true" />
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vclass-obj" value="&lt;$div$ :class=&quot;[$classNameA$, $classNameB$]&quot;&gt;&lt;/$div$&gt;" description="Vue class binding object" toReformat="true" toShortenFQNames="true">
+    <variable name="div" expression="" defaultValue="&quot;div&quot;" alwaysStopAt="true" />
+    <variable name="classNameA" expression="" defaultValue="&quot;classNameA&quot;" alwaysStopAt="true" />
+    <variable name="classNameB" expression="" defaultValue="&quot;classNameB&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vclass-obj-mult" value="&lt;$div$ :class=&quot;[$classNameA$, {$classNameB$ : $condition$}]&quot;&gt;&lt;/$div$&gt;" description="Vue multiple conditional class bindings" toReformat="true" toShortenFQNames="true">
+    <variable name="div" expression="" defaultValue="&quot;div&quot;" alwaysStopAt="true" />
+    <variable name="classNameA" expression="" defaultValue="&quot;classNameA&quot;" alwaysStopAt="true" />
+    <variable name="classNameB" expression="" defaultValue="&quot;classNameB&quot;" alwaysStopAt="true" />
+    <variable name="condition" expression="" defaultValue="&quot;condition&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vcomputed" value="computed: {&#10; $name$() {&#10;  return this.$data$ $END$;&#10; }&#10;}," description="Computed value" toReformat="true" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vdata" value="data() {&#10; return {&#10;  $key$: $value$&#10; }&#10;}," description="Vue component data" toReformat="true" toShortenFQNames="true">
+    <variable name="key" expression="" defaultValue="&quot;key&quot;" alwaysStopAt="true" />
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vdec" value="return this.$variable$ -= 1;" description="Decrement value" toReformat="true" toShortenFQNames="true">
+    <variable name="variable" expression="" defaultValue="&quot;num&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="vel-props" value="&lt;$component$ :$propName$=&quot;$END$&quot;&gt;&lt;/$component$&gt;" description="Vue component with props binding" toReformat="true" toShortenFQNames="true">
+    <variable name="component" expression="" defaultValue="&quot;component&quot;" alwaysStopAt="true" />
+    <variable name="propName" expression="" defaultValue="&quot;propName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vfilter" value="filters: {&#10; $fnName$: function($value$) {&#10;  return $value$$END$;&#10; }&#10;}" description="Vue filter" toReformat="true" toShortenFQNames="true">
+    <variable name="fnName" expression="" defaultValue="&quot;fnName&quot;" alwaysStopAt="true" />
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vfor" value="&lt;$div$ v-for=&quot;$item$ in $item$s&quot; :key=&quot;$item$.id&quot;&gt;&#10; {{ $item$ }}&#10;&lt;/$div$&gt;" description="Vue v-for statement" toReformat="true" toShortenFQNames="true">
+    <variable name="div" expression="" defaultValue="&quot;div&quot;" alwaysStopAt="true" />
+    <variable name="item" expression="" defaultValue="&quot;item&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vgetter" value="getters: {&#10; value: $value$ =&gt; {&#10;  return state.$value$;&#10; }&#10;}" description="Vuex getter" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vimport" value="import $New$ from './components/$New$.vue';" description="Import Vue component" toReformat="true" toShortenFQNames="true">
+    <variable name="New" expression="" defaultValue="&quot;New&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vimport-c" value="components: {&#10; $New$,&#10;}" description="Import Vue component into another, within export statement" toReformat="true" toShortenFQNames="true">
+    <variable name="New" expression="" defaultValue="&quot;New&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vimport-export" value="import $Name$ from '~components/$Name$.vue';&#10;&#10;export default {&#10; components: {&#10;  $Name$&#10; },&#10;}" description="Import Vue component and include it in export default" toReformat="true" toShortenFQNames="true">
+    <variable name="Name" expression="" defaultValue="&quot;Name&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vimport-gsap" value="import { TimelineMax, $Ease$ } from 'gsap';" description="Import methods from GSAP" toReformat="true" toShortenFQNames="true">
+    <variable name="Ease" expression="" defaultValue="&quot;Ease&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vimport-lib" value="import { $libName$ } from '$libName$';" description="Import library" toReformat="true" toShortenFQNames="true">
+    <variable name="libName" expression="" defaultValue="&quot;libName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vinc" value="return this.$variable$ += 1;" description="Increment value" toReformat="true" toShortenFQNames="true">
+    <variable name="variable" expression="" defaultValue="&quot;num&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="vmethod" value="methods: {&#10; $name$() {&#10;  $END$&#10; }&#10;}," description="Vue method" toReformat="true" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vmixin" value="const $mixinName$ = {&#10; mounted() {&#10;  console.log('hello from mixin!');&#10; },&#10;}" description="Vue mixin" toReformat="true" toShortenFQNames="true">
+    <variable name="mixinName" expression="" defaultValue="&quot;mixinName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="vmixin-use" value="mixins: [$mixinName$]" description="Vue use mixin" toReformat="true" toShortenFQNames="true">
+    <variable name="mixinName" expression="" defaultValue="&quot;mixinName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vmodel" value="&lt;input v-model=&quot;$data$&quot; type=&quot;text&quot; /&gt;" description="Vue v-model directive" toReformat="true" toShortenFQNames="true">
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vmodel-num" value="&lt;input v-model.number=&quot;$numData$&quot; type=&quot;number&quot; step=&quot;1&quot; /&gt;" description="Vue v-model number directive" toReformat="true" toShortenFQNames="true">
+    <variable name="numData" expression="" defaultValue="&quot;numData&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vmutation" value="mutations: {&#10; $updateValue$(state, $payload$) {&#10;  state.$value$ = $payload$;&#10; }&#10;}" description="Vuex mutation" toReformat="true" toShortenFQNames="true">
+    <variable name="updateValue" expression="" defaultValue="&quot;updateValue&quot;" alwaysStopAt="true" />
+    <variable name="payload" expression="" defaultValue="&quot;payload&quot;" alwaysStopAt="true" />
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="von" value="@click=&quot;$handler$($arg$, $event$)&quot;" description="Vue v-on click handler with arguments" toReformat="true" toShortenFQNames="true">
+    <variable name="handler" expression="" defaultValue="&quot;handler&quot;" alwaysStopAt="true" />
+    <variable name="arg" expression="" defaultValue="&quot;arg&quot;" alwaysStopAt="true" />
+    <variable name="event" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_INSIDE_TAG" value="true" />
+    </context>
+  </template>
+  <template name="vprops" value="props: {&#10; $propName$: {&#10;  type: $type$,&#10;  default: $default$$END$&#10; },&#10;}," description="Vue props with default" toReformat="true" toShortenFQNames="true">
+    <variable name="propName" expression="" defaultValue="&quot;propName&quot;" alwaysStopAt="true" />
+    <variable name="type" expression="" defaultValue="&quot;Number&quot;" alwaysStopAt="true" />
+    <variable name="default" expression="" defaultValue="&quot;0&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="vsrc" value="&lt;img :src=&quot;'/path/to/images/' + $fileName$&quot; alt=&quot;$altText$&quot;/&gt;" description="Vue image source binding" toReformat="true" toShortenFQNames="true">
+    <variable name="fileName" expression="" defaultValue="&quot;fileName&quot;" alwaysStopAt="true" />
+    <variable name="altText" expression="" defaultValue="&quot;altText&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vstore" value="import Vue from 'vue';&#10;import Vuex from 'vuex';&#10;&#10;Vue.use(Vuex);&#10;&#10;export const store = new Vuex.Store({&#10; state: {&#10;  $key$: $value$&#10; }&#10;});" description="Vuex store" toReformat="true" toShortenFQNames="true">
+    <variable name="key" expression="" defaultValue="&quot;key&quot;" alwaysStopAt="true" />
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vstore-import" value="import { store } from './store/store';&#10;" description="Import Vuex store into main.js" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="VUE_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="vstyle" value="&lt;$div$ :style=&quot;{ fontSize: $data$ + 'px' }&quot;&gt;&lt;/$div$&gt;" description="Vue inline style binding" toReformat="true" toShortenFQNames="true">
+    <variable name="div" expression="" defaultValue="&quot;div&quot;" alwaysStopAt="true" />
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vstyle-obj" value="&lt;$div$ :style=&quot;[$styleObjectA$, $styleObjectB$]&quot;&gt;&lt;/$div$&gt;" description="Vue style binding object" toReformat="true" toShortenFQNames="true">
+    <variable name="div" expression="" defaultValue="&quot;div&quot;" alwaysStopAt="true" />
+    <variable name="styleObjectA" expression="" defaultValue="&quot;styleObjectA&quot;" alwaysStopAt="true" />
+    <variable name="styleObjectB" expression="" defaultValue="&quot;styleObjectB&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_TEMPLATE" value="true" />
+    </context>
+  </template>
+  <template name="vwatcher" value="watch: {&#10; $data$($newValue$, $oldValue$) {&#10;  $END$&#10; }&#10;}," description="Vue watcher" toReformat="true" toShortenFQNames="true">
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <variable name="newValue" expression="" defaultValue="&quot;newValue&quot;" alwaysStopAt="true" />
+    <variable name="oldValue" expression="" defaultValue="&quot;oldValue&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+    </context>
+  </template>
+  <template name="my_sass_scss_type" value="rel=&quot;stylesheet/scss&quot; lang=&quot;scss&quot; type=&quot;text/scss&quot;" description="快速生成Sass的Type属性。（此处比较特殊，Sass使用的Scss的类型）" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="Vue" value="true" />
+    </context>
+  </template>
+</templateSet>
